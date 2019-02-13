@@ -1,0 +1,7 @@
+.root {
+    -fx-background-color: linear-gradient(to top, #008800, #559955);
+}
+
+.botArea {
+    -fx-background-color: red;
+}
