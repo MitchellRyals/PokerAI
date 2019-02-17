@@ -1,8 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.?>
+
+<Pane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml">
+    <GridPane fx:id="humanArea" alignment="BOTTOM_CENTER">
+
+    </GridPane>
+</Pane>
