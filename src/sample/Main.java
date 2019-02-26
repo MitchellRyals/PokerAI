@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.layout.*;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
 
@@ -11,31 +12,41 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //import the fxml file
-        VBox root = new VBox();
-        //root.setAlignment(Pos.CENTER);
+        //create the root node
+        BorderPane root = new BorderPane();
+        Scene scene = new Scene(root, 1200, 900);
 
-        primaryStage.setScene(new Scene(root, 1200, 900));
         //applies the css file "poker.css" to the project
-        root.getStylesheets().add(this.getClass().getResource("poker.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("poker.css").toExternalForm());
 
-        BorderPane botAreaPane = new BorderPane();
-        HBox botArea = new HBox();
-        botAreaPane.setTop(botArea);
+        AnchorPane botArea = new AnchorPane();
+        botArea.setMinHeight(250);
+        root.setTop(botArea);
 
-        BorderPane humanAreaPane = new BorderPane();
-        HBox humanArea = new HBox();
-        humanAreaPane.setBottom(humanArea);
+        AnchorPane humanArea = new AnchorPane();
+        humanArea.setId("humanArea");
+        humanArea.setMinHeight(250);
+        root.setBottom(humanArea);
 
-        BorderPane cardAreaPane = new BorderPane();
-        HBox cardArea = new HBox();
-        cardAreaPane.setCenter(cardArea);
+        AnchorPane cardArea = new AnchorPane();
+        cardArea.setId("cardArea");
+        root.setCenter(cardArea);
 
-        Label l = new Label("hello");
-        humanArea.getChildren().addAll(l);
+        Label botMoney = new Label("$0.00");
+        botMoney.setId("botMoney");
+        botArea.setLeftAnchor(botMoney, 10.0);
+        botArea.getChildren().addAll(botMoney);
 
+        Label humanMoney = new Label("$0.00");
+        humanMoney.setId("humanMoney");
+        humanArea.setLeftAnchor(humanMoney, 10.0);
+        humanArea.getChildren().addAll(humanMoney);
+
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Poker");
         primaryStage.show();
+
+        //************END FRONT END************
     }
 
     public static void main(String[] args) {
