@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.Scene;
@@ -8,16 +9,22 @@ import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+
+import java.io.File;
 import java.io.FileInputStream;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import java.util.List;
+
 
 //Cards courtesy of the ACBL
 public class Main extends Application {
+    private static HBox botArea = new HBox();
+    private static HBox humanArea = new HBox();
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
         //create the root node
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 1200, 900);
@@ -45,13 +52,11 @@ public class Main extends Application {
     }
 
     public void startGame(BorderPane root) {
-        HBox botArea = new HBox();
         botArea.setId("botArea");
         botArea.setMinHeight(250);
         botArea.setAlignment(Pos.TOP_CENTER);
         root.setTop(botArea);
 
-        HBox humanArea = new HBox();
         humanArea.setId("humanArea");
         humanArea.setMinHeight(250);
         humanArea.setAlignment(Pos.BOTTOM_CENTER);
@@ -70,17 +75,36 @@ public class Main extends Application {
         humanMoney.setId("humanMoney");
         humanArea.getChildren().addAll();
 
-        String path = System.getProperty("user.dir");
-        try {
-            FileInputStream card1Stream = new FileInputStream(path + "/src/sample/cards/1.png");
-            Image card1 = new Image(card1Stream);
-            humanArea.getChildren().addAll(new ImageView(card1));
-        } catch (Exception e){}
-
         /********END FRONT END*****************/
-        Card[] deck = new Card[52];
-        deck = Card.createDeck();
+        Game.beginGame();
 
+    }
+
+    public static void updateHumanHand(List<Card> hand) {
+        humanArea.getChildren().clear();
+
+        for (Card card : hand) {
+            try {
+                String path = card.getImagePath();
+                Image image = new Image(path, 120, 190, false, false);
+                humanArea.getChildren().addAll(new ImageView(image));
+            }
+            catch (Exception e) {}
+        }
+    }
+
+    public static void updateBotHand(List<Card> hand) {
+        botArea.getChildren().clear();
+
+        for (Card card : hand) {
+            try {
+                String path = card.getImagePath();
+                Image image = new Image(path, 120, 190, false, false);
+                botArea.getChildren().addAll(new ImageView(image));
+            }
+            catch (Exception e) {}
+        }
+        //botArea.getChildren().addAll(new ImageView("sample/cards/2.png"));
     }
 }
 

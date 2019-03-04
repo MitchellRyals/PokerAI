@@ -1,49 +1,41 @@
 package sample;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Card {
-    String imagePath;
-    Integer value;
-    String suit;
+    private final Rank rank;
+    private final Suit suit;
+    private int imagePath;
 
-    /*****************CARD LEGEND***********
-     *
-     * 2 = 2
-     * 3 = 3
-     * 4 = 4
-     * ...
-     * Jack = 11
-     * Queen = 12
-     * King = 13
-     * Ace = 14
-     **************************************/
+    public enum Rank { TWO, THREE, FOUR, FIVE, SIX,
+        SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }
 
-    public Card(String imagePath, Integer value, String suit) {
-        this.imagePath = imagePath;
-        this.value = value;
+    public enum Suit { CLUBS, DIAMONDS, HEARTS, SPADES }
+
+    public Card(Rank rank, Suit suit, int imagePath) {
+        this.rank = rank;
         this.suit = suit;
+        this.imagePath = imagePath;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
+    public String getImagePath() { return "sample/cards/" + imagePath + ".png"; }
 
-    public Integer getValue() { return value; }
+    public Rank getRank() { return rank; }
 
-    public String getSuit() { return suit; }
+    public Suit getSuit() { return suit; }
 
-    public static Card[] createDeck() {
-        Card[] deck = new Card[52];
-        //clubs diamonds hearts spades
-        String[] suitTypes = {"c", "d", "h", "s"};
+    public static List<Card> createDeck() {
+        List<Card> deck = new ArrayList<Card>();
         int i = 0;
 
-        for (int suitCounter = 0; suitCounter < suitTypes.length; suitCounter++) {
-            for (int cardValue = 2; cardValue < 15; cardValue++) {
-                String path = Integer.toString(cardValue) + suitTypes[suitCounter];
-                deck[i] = new Card(path, cardValue, suitTypes[suitCounter]);
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
+                deck.add(new Card(rank, suit, i));
                 i++;
             }
         }
+
 
         return deck;
     }

@@ -7,13 +7,117 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="working gradient">
+      <change afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/poker.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/poker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9S.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/poker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/poker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/10C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/10D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/10H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/10S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/11C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/11D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/11H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/11S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/12C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/12D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/12H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/12S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/13C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/13D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/13H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/13S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/14C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/14D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/14H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/14S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/2C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/2D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/2H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/2S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/3C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/3D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/3H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/3S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/4C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/4D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/4H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/4S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/5C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/5D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/5H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/5S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/6C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/6D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/6H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/6S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/7C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/7D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/7H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/7S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/8C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/8D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/8H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/8S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/9C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/9D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/9H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/9S.png" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,13 +177,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="81" column="33" lean-forward="true" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+            <state relative-caret-position="320">
+              <caret line="95" column="55" lean-forward="true" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1033#1034#0" expanded="true" />
-                <element signature="e#1080#1081#0" expanded="true" />
-                <element signature="e#1358#1359#0" expanded="true" />
+                <element signature="e#1176#1177#0" expanded="true" />
+                <element signature="e#1223#1224#0" expanded="true" />
+                <element signature="e#1337#1338#0" expanded="true" />
+                <element signature="e#1365#1366#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#137#143#0" expanded="true" />
+                <element signature="e#199#205#0" expanded="true" />
+                <element signature="e#332#338#0" expanded="true" />
+                <element signature="e#709#710#0" expanded="true" />
+                <element signature="e#731#732#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#807#808#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,11 +212,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="378">
+              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding>
-                <element signature="e#415#416#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#771#777#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,7 +225,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/poker.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="108">
               <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
             </state>
           </provider>
@@ -112,8 +236,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="XSLT Stylesheet" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -136,16 +260,19 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/poker.css" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/sample/Game.java" />
         <option value="$PROJECT_DIR$/src/sample/Card.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="954" />
+    <option name="y" value="142" />
+    <option name="width" value="966" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -156,7 +283,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,6 +306,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -191,14 +318,14 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551714184176" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551717587476" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -316,10 +443,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="954" y="142" width="966" height="1042" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.11961207" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.122826084" />
       <window_info id="Favorites" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -327,8 +454,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Structure" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24567099" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24700762" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -339,7 +466,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.1991342" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.26441786" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -353,41 +480,6 @@
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.12035011" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12048193" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Problems" order="9" />
-      <window_info anchor="bottom" id="Changes" order="10" />
-      <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.19934283" />
-      <window_info anchor="bottom" id="Terminal" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="8" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -407,36 +499,52 @@
     <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/layout/Pane.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/layout/VBox.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/cards/1.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/sample/cards/1.png" />
+    <entry file="file://$PROJECT_DIR$/src/sample/poker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="378">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding>
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#771#777#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/poker.css">
+    <entry file="file://$PROJECT_DIR$/src/sample/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="450">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#137#143#0" expanded="true" />
+            <element signature="e#199#205#0" expanded="true" />
+            <element signature="e#332#338#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="81" column="33" lean-forward="true" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="33" />
+        <state relative-caret-position="320">
+          <caret line="95" column="55" lean-forward="true" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1033#1034#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1223#1224#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
           </folding>
         </state>
       </provider>
