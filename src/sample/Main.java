@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
@@ -82,29 +83,38 @@ public class Main extends Application {
 
     public static void updateHumanHand(List<Card> hand) {
         humanArea.getChildren().clear();
+        int i = 0;
 
         for (Card card : hand) {
             try {
                 String path = card.getImagePath();
                 Image image = new Image(path, 120, 190, false, false);
-                humanArea.getChildren().addAll(new ImageView(image));
+                //makes a button for each of the player's cards and sets the background image as the card itself.
+                Button cardButton = new Button("", new ImageView(image));
+                cardButton.setId("playerCard" + i);
+                humanArea.getChildren().addAll(cardButton);
+                i++;
             }
-            catch (Exception e) {}
+            catch (Exception e) {} //TODO: error throw
         }
     }
 
     public static void updateBotHand(List<Card> hand) {
         botArea.getChildren().clear();
+        int i = 0;
 
         for (Card card : hand) {
             try {
                 String path = card.getImagePath();
                 Image image = new Image(path, 120, 190, false, false);
-                botArea.getChildren().addAll(new ImageView(image));
+                //makes a button for each of the bot's cards and sets the background image as the card itself.
+                Button cardButton = new Button("", new ImageView(image));
+                cardButton.setId("botCard" + i);
+                botArea.getChildren().addAll(cardButton);
+                i++;
             }
-            catch (Exception e) {}
+            catch (Exception e) {} //TODO: error throw
         }
-        //botArea.getChildren().addAll(new ImageView("sample/cards/2.png"));
     }
 }
 

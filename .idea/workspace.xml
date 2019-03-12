@@ -7,117 +7,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="working gradient">
-      <change afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PokerAI/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/10S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/11S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/12S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/13S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/14S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/2S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/3S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/4S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/5S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/6S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/7S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/8S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PokerAI/sample/cards/9S.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/10C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/10D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/10H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/10S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/11C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/11D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/11H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/11S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/12C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/12D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/12H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/12S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/13C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/13D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/13H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/13S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/14C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/14D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/14H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/14S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/2C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/2D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/2H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/2S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/3C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/3D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/3H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/3S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/4C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/4D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/4H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/4S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/5C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/5D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/5H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/5S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/6C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/6D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/6H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/6S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/7C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/7D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/7H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/7S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/8C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/8D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/8H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/8S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/9C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/9D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/9H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/cards/9S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/cards/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/poker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/poker.css" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -169,6 +115,40 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1471752218">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="292" />
+          <entry key="java" value="1618" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="292" />
+          <entry key="JAVA" value="1618" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
@@ -177,34 +157,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="95" column="55" lean-forward="true" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1176#1177#0" expanded="true" />
-                <element signature="e#1223#1224#0" expanded="true" />
-                <element signature="e#1337#1338#0" expanded="true" />
-                <element signature="e#1365#1366#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#137#143#0" expanded="true" />
-                <element signature="e#199#205#0" expanded="true" />
-                <element signature="e#332#338#0" expanded="true" />
-                <element signature="e#709#710#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-                <element signature="e#781#782#0" expanded="true" />
-                <element signature="e#807#808#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="586">
+              <caret line="111" column="48" lean-forward="true" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -212,11 +166,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="595">
+              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#771#777#0" expanded="true" />
+                <element signature="e#324#330#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -225,8 +188,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/poker.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="340">
+              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -259,20 +222,19 @@
       <list>
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/poker.css" />
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/sample/Game.java" />
-        <option value="$PROJECT_DIR$/src/sample/Card.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/poker.css" />
+        <option value="$PROJECT_DIR$/src/sample/Card.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="954" />
-    <option name="y" value="142" />
-    <option name="width" value="966" />
-    <option name="height" value="1042" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -283,21 +245,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Poker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Poker" type="462c0819:PsiDirectoryNode" />
+              <item name="PokerAI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PokerAI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Poker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Poker" type="462c0819:PsiDirectoryNode" />
+              <item name="PokerAI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PokerAI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Poker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Poker" type="462c0819:PsiDirectoryNode" />
+              <item name="PokerAI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PokerAI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -305,7 +268,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -318,7 +280,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551717587476" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552431012592" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -358,7 +320,7 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-    <configuration default="true" type="Applet">
+    <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -387,7 +349,6 @@
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -396,7 +357,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG">
+    <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -407,11 +368,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
+      <predefined_log_file id="idea.log" enabled="true" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -443,10 +404,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="954" y="142" width="966" height="1042" extended-state="0" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.122826084" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.12582056" />
       <window_info id="Favorites" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -455,7 +416,42 @@
       <window_info id="Structure" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24700762" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.10405257" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978093" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Problems" order="9" />
+      <window_info anchor="bottom" id="Changes" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.21905805" />
+      <window_info anchor="bottom" id="Terminal" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.12582056" />
+      <window_info id="Favorites" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Structure" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2464403" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -479,10 +475,13 @@
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -502,50 +501,33 @@
     <entry file="file://$PROJECT_DIR$/src/sample/cards/1.png" />
     <entry file="file://$PROJECT_DIR$/src/sample/poker.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="340">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Card.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#771#777#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="595">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#137#143#0" expanded="true" />
-            <element signature="e#199#205#0" expanded="true" />
-            <element signature="e#332#338#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#324#330#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="95" column="55" lean-forward="true" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1176#1177#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-            <element signature="e#1337#1338#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="586">
+          <caret line="111" column="48" lean-forward="true" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
         </state>
       </provider>
     </entry>

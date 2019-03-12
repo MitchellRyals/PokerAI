@@ -6,3 +6,16 @@
     -fx-background-color: black;
     -fx-color: white;
 }
+
+#humanArea > .button {
+    -fx-background-color: black;
+}
+
+#botArea > .button {
+    -fx-background-color: black;
+    -fx-rotate: 180;
+
+}
+#humanArea > .button:hover {
+    -fx-padding: 5 10 12 10;
+}

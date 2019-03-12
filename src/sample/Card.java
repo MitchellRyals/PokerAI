@@ -19,7 +19,7 @@ public class Card {
         this.imagePath = imagePath;
     }
 
-    public String getImagePath() { return "sample/cards/" + imagePath + ".png"; }
+    public String getImagePath() { return "sample/cards/" + suit + rank + ".png"; }
 
     public Rank getRank() { return rank; }
 
@@ -35,7 +35,6 @@ public class Card {
                 i++;
             }
         }
-
 
         return deck;
     }
