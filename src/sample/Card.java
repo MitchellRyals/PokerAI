@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Button;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -7,6 +9,7 @@ public class Card {
     private final Rank rank;
     private final Suit suit;
     private int imagePath;
+    private static List<Card> deck;
 
     public enum Rank { TWO, THREE, FOUR, FIVE, SIX,
         SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }
@@ -19,14 +22,20 @@ public class Card {
         this.imagePath = imagePath;
     }
 
+    public static void setDeck(List<Card> newDeck) {
+        deck = newDeck;
+    }
+
     public String getImagePath() { return "sample/cards/" + suit + rank + ".png"; }
 
     public Rank getRank() { return rank; }
 
     public Suit getSuit() { return suit; }
 
+    public static List<Card> getDeck() { return deck; }
+
     public static List<Card> createDeck() {
-        List<Card> deck = new ArrayList<Card>();
+        deck = new ArrayList<Card>();
         int i = 0;
 
         for (Suit suit : Suit.values()) {

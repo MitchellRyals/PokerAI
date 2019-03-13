@@ -9,13 +9,26 @@
 
 #humanArea > .button {
     -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 20;
 }
 
 #botArea > .button {
     -fx-background-color: black;
     -fx-rotate: 180;
-
 }
+
 #humanArea > .button:hover {
     -fx-padding: 5 10 12 10;
+}
+
+#currentAction {
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-text-fill: white;
+}
+
+.addBorder {
+    -fx-border-color: skyblue;
+    -fx-border-width: 5;
 }

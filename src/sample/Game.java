@@ -9,25 +9,45 @@ public class Game {
     private static List<Card> botHand = new ArrayList<Card>();
 
     public static void beginGame() {
-        //THIS IS THE MAIN GAME FUNCTION
         List<Card> deck = new ArrayList<Card>();
         deck = Card.createDeck();
         Collections.shuffle(deck);
 
-        for (int i = 0; i < 5; i++) {
-            deal(deck);
-        }
-
+        //deals 5 cards to both the bot and player
+        dealHuman(deck);
+        dealBot(deck);
 
     }
 
-    private static void deal(List<Card> deck) {
-        humanHand.add(deck.get(0));
-        deck.remove(0);
-        Main.updateHumanHand(humanHand);
-        botHand.add(deck.get(0));
-        deck.remove(0);
-        Main.updateBotHand(botHand);
+    public static void dealHuman(List<Card> deck) {
+        while (humanHand.size() < 5) {
+            humanHand.add(deck.get(0));
+            deck.remove(0);
+            Card.setDeck(deck);
+            Main.updateHumanHand(humanHand);
+        }
+    }
+
+    public static void dealBot(List<Card> deck) {
+        while (botHand.size() < 5) {
+            botHand.add(deck.get(0));
+            deck.remove(0);
+            Main.updateBotHand(botHand);
+        }
+    }
+
+    public static void discard(List<Integer> toBeDiscarded) {
+        //this sort and reverse is so that I can remove elements without giving an out of bounds error due to
+        //list resizing.
+        Collections.sort(toBeDiscarded);
+        Collections.reverse(toBeDiscarded);
+
+        for (Integer i: toBeDiscarded) {
+            humanHand.remove((int)i);
+        }
+
+        List<Card> deck = Card.getDeck();
+        dealHuman(deck);
     }
 
     private static void getHandValue(List<Card> hand) {
