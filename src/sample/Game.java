@@ -49,24 +49,36 @@ public class Game {
 
         List<Card> deck = Card.getDeck();
         dealHuman(deck);
+        //todo: add bot turn here
+        getHandValue(humanHand);
     }
 
-    private static void getHandValue(List<Card> hand) {
+    private static Integer getHandValue(List<Card> hand) {
         Integer returnValue;
         String[] suitList = new String[5];
-        Integer[] typeList = new Integer[5];
+        Integer[] valueList = new Integer[5];
         int i = 0;
 
         for (Card c: hand) {
-            suitList[i] = c.getSuit().toString().substring(0, 1);
-            typeList[i] = c.getRank()
+            suitList[i] = c.getSuit().substring(0, 1);
+            valueList[i] = c.getRank();
             i++;
         }
 
         Arrays.sort(suitList);
-        System.out.println(suitList);
+        Arrays.sort(valueList);
 
-        //return 1;
+        if (isSameSuit(suitList)) {
+            if (isRoyalFlush(valueList)) {
+                return 20;
+            }
+            else if (isFlush(valueList)) {
+                return 19;
+            }
+        }
+        
+
+        return 1;
     }
 
     private static String compareHands(Integer humanHandValue, Integer botHandValue) {
@@ -80,13 +92,37 @@ public class Game {
     }
 
     //Down here is a series of functions that will check for flush, straight, pair, etc.
-    private static boolean isFlush(String[] suitList, Integer[] cardValues) {
-        boolean isSameSuit;
-        boolean typeFlush;
-
+    private static boolean isSameSuit(String[] suitList) {
         //compare the last and first suit of the already sorted array
-        isSameSuit = (suitList[suitList.length - 1] == suitList[0]);
+        return (suitList[suitList.length - 1] == suitList[0]);
+    }
 
-        return isSameSuit && typeFlush;
+    private static boolean isRoyalFlush(Integer[] valueList) {
+        //a decrementing counter starting at 14 because that is the value of an ace
+        int cardCounter = 10;
+
+        //checks for ace>king>queen>jack>10
+        for (int i = 0; i < valueList.length; i++) {
+            if (valueList[i] != cardCounter) {
+                return false;
+            }
+            cardCounter++;
+        }
+
+        return true;
+    }
+
+    private static boolean isFlush(Integer[] valueList) {
+        int smallest = valueList[0];
+
+        //checks for 5 cards in a row from a sorted array
+        for (int i = 0; i < valueList.length; i++) {
+            if (valueList[i] != smallest) {
+                return false;
+            }
+            smallest++;
+        }
+
+        return true;
     }
 }

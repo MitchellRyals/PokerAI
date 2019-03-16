@@ -28,7 +28,7 @@ public class Card {
 
     public Integer getRank() { return rank.ordinal() + 2; }
 
-    public Suit getSuit() { return suit; }
+    public String getSuit() { return suit.toString(); }
 
     public static List<Card> getDeck() { return deck; }
 
