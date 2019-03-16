@@ -3,6 +3,7 @@ package sample;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Arrays;
 
 public class Game {
     private static List<Card> humanHand = new ArrayList<Card>();
@@ -53,12 +54,16 @@ public class Game {
     private static void getHandValue(List<Card> hand) {
         Integer returnValue;
         String[] suitList = new String[5];
+        Integer[] typeList = new Integer[5];
         int i = 0;
 
         for (Card c: hand) {
-            suitList[i] += c.getSuit().toString().substring(0, 1);
+            suitList[i] = c.getSuit().toString().substring(0, 1);
+            typeList[i] = c.getRank()
             i++;
         }
+
+        Arrays.sort(suitList);
         System.out.println(suitList);
 
         //return 1;
@@ -72,5 +77,16 @@ public class Game {
             return "Draw!";
         }
         else return "You lost!";
+    }
+
+    //Down here is a series of functions that will check for flush, straight, pair, etc.
+    private static boolean isFlush(String[] suitList, Integer[] cardValues) {
+        boolean isSameSuit;
+        boolean typeFlush;
+
+        //compare the last and first suit of the already sorted array
+        isSameSuit = (suitList[suitList.length - 1] == suitList[0]);
+
+        return isSameSuit && typeFlush;
     }
 }

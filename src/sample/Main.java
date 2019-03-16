@@ -17,7 +17,6 @@ import javafx.event.EventHandler;
 import java.util.List;
 import java.util.ArrayList;
 
-
 //Cards courtesy of the ACBL
 public class Main extends Application {
     private static HBox botArea = new HBox();

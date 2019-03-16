@@ -1,7 +1,5 @@
 package sample;
 
-import javafx.scene.control.Button;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -28,7 +26,7 @@ public class Card {
 
     public String getImagePath() { return "sample/cards/" + suit + rank + ".png"; }
 
-    public Rank getRank() { return rank; }
+    public Integer getRank() { return rank.ordinal() + 2; }
 
     public Suit getSuit() { return suit; }
 
