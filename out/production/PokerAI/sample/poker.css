@@ -9,8 +9,6 @@
 
 #humanArea > .button {
     -fx-background-color: black;
-    -fx-text-fill: white;
-    -fx-font-size: 20;
 }
 
 #botArea > .button {
@@ -19,7 +17,7 @@
 }
 
 #humanArea > .button:hover {
-    -fx-padding: 5 10 12 10;
+    -fx-padding: 5 10 13 10;
 }
 
 #currentAction {
@@ -31,4 +29,21 @@
 .addBorder {
     -fx-border-color: skyblue;
     -fx-border-width: 5;
+}
+
+.gameButton {
+        -fx-background-color: black;
+        -fx-text-fill: white;
+        -fx-font-size: 20;
+}
+
+.gameButton:hover {
+    -fx-background-color: #333333;
+}
+
+.disabled {
+        -fx-background-color: black;
+        -fx-text-fill: white;
+        -fx-font-size: 20;
+        -fx-opacity: 0.5;
 }

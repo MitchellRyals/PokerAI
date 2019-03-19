@@ -1,9 +1,6 @@
 package sample;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Arrays;
+import java.util.*;
 
 public class Game {
     private static List<Card> humanHand = new ArrayList<Card>();
@@ -24,17 +21,35 @@ public class Game {
         while (humanHand.size() < 5) {
             humanHand.add(deck.get(0));
             deck.remove(0);
-            Card.setDeck(deck);
-            Main.updateHumanHand(humanHand);
+            Card.setDeck(deck);;
         }
+
+        //this comparator is used to sort enums using a property. Essentially sorts my player hand
+        Comparator comparator1 = new Comparator<Card>() {
+            public int compare(Card e1, Card e2) {
+                return e1.getRank() - e2.getRank();
+            }
+        };
+
+        Collections.sort(humanHand, comparator1);
+        Main.updateHumanHand(humanHand);
     }
 
     public static void dealBot(List<Card> deck) {
         while (botHand.size() < 5) {
             botHand.add(deck.get(0));
             deck.remove(0);
-            Main.updateBotHand(botHand);
         }
+
+        //this comparator is used to sort enums using a property. Essentially sorts my bot hand
+        Comparator comparator1 = new Comparator<Card>() {
+            public int compare(Card e1, Card e2) {
+                return e1.getRank() - e2.getRank();
+            }
+        };
+
+        Collections.sort(botHand, comparator1);
+        Main.updateBotHand(botHand);
     }
 
     public static void discard(List<Integer> toBeDiscarded) {
@@ -50,11 +65,31 @@ public class Game {
         List<Card> deck = Card.getDeck();
         dealHuman(deck);
         //todo: add bot turn here
-        getHandValue(humanHand);
+        System.out.println("CHECKING HUMAN -----------------------");
+        int playerCardValue = getHandValue(humanHand);
+        System.out.println("CHECKING BOT -----------------------");
+        int botCardValue = getHandValue(botHand);
+
+        String winOrLose = compareHands(playerCardValue, botCardValue);
+        Main.changeCenterMessage(winOrLose, playerCardValue, botCardValue);
+        //this line might look like spaghetti and it probably is but it uses a getter to avoid having 2 identical functions in main
+        Main.enableButton(Main.getNewGameButton());
     }
 
-    private static Integer getHandValue(List<Card> hand) {
-        Integer returnValue;
+    private static int getHandValue(List<Card> hand) {
+        /********************************************
+         * CARD VALUES
+         * 2-14 = 2, 3, 4, ... , Jack (11), Queen (12), King (13), Ace (14)
+         * 16-28 = pair (return 14 + card value)
+         * 30-42 = 2x pairs (return 28 + card value)
+         * 44-56 = 3 of a kind (return 42 + card value)
+         * 58-70 = straight (return 56 + card value)
+         * 72-84 = flush (return 70 + card value)
+         * 86-98 = full house (return 84 + card value)
+         * 100-112 = 4 of a kind (return 98 + card value)
+         * 114-126 = straight flush (return 112 + card value)
+         * 141 = royal flush
+         **********************************************/
         String[] suitList = new String[5];
         Integer[] valueList = new Integer[5];
         int i = 0;
@@ -68,20 +103,32 @@ public class Game {
         Arrays.sort(suitList);
         Arrays.sort(valueList);
 
-        if (isSameSuit(suitList)) {
+        //checks for a straight or royal flush before anything else is done
+        if (isFlush(suitList)) {
             if (isRoyalFlush(valueList)) {
-                return 20;
+                //the highest possible value
+                return 141;
             }
-            else if (isFlush(valueList)) {
-                return 19;
+            else if (isStraight(valueList)) {
+                //return 14 lower than a royal flush plus the value of the highest card value
+                return 126 + valueList[valueList.length -1];
             }
         }
-        
 
-        return 1;
+        //I am skipping the 0 and 1 spot of this array for simplicity's sake even though it may not be the most efficient.
+        //this array will hold the number of each card in order to avoid redundant checking for pairs
+        int[] numEachCard = new int[15];
+
+        for (i = 2; i < valueList.length; i++) {
+            int value = valueList[i];
+            numEachCard[value]++;
+        }
+
+        //checks for full house and/or pairs. Returns highest index'd card if it can't find any.
+        return checkForPairs(numEachCard);
     }
 
-    private static String compareHands(Integer humanHandValue, Integer botHandValue) {
+    private static String compareHands(int humanHandValue, int botHandValue) {
         if (humanHandValue > botHandValue) {
             return "You win!";
         }
@@ -91,9 +138,9 @@ public class Game {
         else return "You lost!";
     }
 
-    //Down here is a series of functions that will check for flush, straight, pair, etc.
-    private static boolean isSameSuit(String[] suitList) {
-        //compare the last and first suit of the already sorted array
+    //From here on is just functions that check for various card hands
+    private static boolean isFlush(String[] suitList) {
+        //compare the last and first suit of the already sorted array to check for a flush
         return (suitList[suitList.length - 1] == suitList[0]);
     }
 
@@ -101,7 +148,7 @@ public class Game {
         //a decrementing counter starting at 14 because that is the value of an ace
         int cardCounter = 10;
 
-        //checks for ace>king>queen>jack>10
+        //checks for 10>jack>queen>king>ace
         for (int i = 0; i < valueList.length; i++) {
             if (valueList[i] != cardCounter) {
                 return false;
@@ -112,17 +159,78 @@ public class Game {
         return true;
     }
 
-    private static boolean isFlush(Integer[] valueList) {
-        int smallest = valueList[0];
+    private static boolean isStraight(Integer[] valueList) {
+        int smallestCard = valueList[0];
 
         //checks for 5 cards in a row from a sorted array
         for (int i = 0; i < valueList.length; i++) {
-            if (valueList[i] != smallest) {
+            if (valueList[i] != smallestCard) {
                 return false;
             }
-            smallest++;
+            smallestCard++;
         }
 
         return true;
+    }
+
+    private static boolean isFullHouse(int[] numEachCard) {
+        //since this function is called if a 3-pair is detected, all we have to do is look for a 2 pair
+        for (int i = 2; i < numEachCard.length; i++) {
+            if (numEachCard[i] == 2) {
+                return true;
+            }
+        }
+
+        //if no 2-pairs are found
+        return false;
+    }
+
+    private static int checkForPairs(int[] numEachCard) {
+        //todo: need to find the bug here that is causing the wrong numbers to come out.
+        int highest = -1;
+        int index = -1;
+        boolean doubleTwoPair = false;
+
+        for (int i = 2; i < numEachCard.length; i++) {
+            if (numEachCard[i] >= highest) {
+                //this inner if statement will check for 2 two-pairs.
+                if (numEachCard[i] == 2 && highest == 2) {
+                    System.out.println("double pair is true");
+                    doubleTwoPair = true;
+                }
+
+                System.out.println("numEachCard[" + i + "]: " + numEachCard[i]);
+                highest = numEachCard[i];
+                index = i;
+            }
+        }
+
+        //see card values up in the starred comment for why this return value is what it is.
+        System.out.println("highest: " + highest);
+        switch (highest) {
+            case 2:
+                if (doubleTwoPair) {
+                    return 28 + index;
+                }
+                else
+                    return 14 + index;
+            case 3:
+                //if there is a 3-pair, check for a 2-pair to see if there is a full house
+                if (isFullHouse(numEachCard)) {
+                    return 84 + index;
+                }
+                else
+                    return 42 + index;
+            case 4:
+                return 98 + index;
+            default:
+                return index;
+                //the default SHOULD return the last (literal highest card value) found card due to how the loop iterates.
+        }
+    }
+
+    public static void emptyHands() {
+        humanHand.clear();
+        botHand.clear();
     }
 }

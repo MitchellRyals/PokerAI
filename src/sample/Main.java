@@ -17,28 +17,31 @@ import javafx.event.EventHandler;
 import java.util.List;
 import java.util.ArrayList;
 
-//Cards courtesy of the ACBL
 public class Main extends Application {
     private static HBox botArea = new HBox();
     private static HBox humanArea = new HBox();
     private static List<Integer> toBeDiscarded = new ArrayList<>();
     private static boolean firstTurn = true;
+    private static BorderPane root;
+    private static Button discardButton;
+    private static Button newGameButton;
 
 
     @Override
     public void start(Stage primaryStage) {
         //create the root node
-        BorderPane root = new BorderPane();
+        root = new BorderPane();
         Scene scene = new Scene(root, 1200, 900);
 
         //applies the css file "poker.css" to the project
         scene.getStylesheets().add(this.getClass().getResource("poker.css").toExternalForm());
 
         Button startButton = new Button("Start Game");
+        startButton.getStyleClass().add("gameButton");
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                startGame(root);
+                startGame();
             }
         });
         root.setCenter(startButton);
@@ -53,7 +56,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    private void startGame(BorderPane root) {
+    private void startGame() {
         botArea.setId("botArea");
         botArea.setMinHeight(250);
         botArea.setAlignment(Pos.TOP_CENTER);
@@ -70,16 +73,27 @@ public class Main extends Application {
         root.setCenter(cardArea);
 
         Label botMoney = new Label("$0.00");
-        botMoney.setId("botMoney");
         botArea.getChildren().addAll();
 
         Label humanMoney = new Label("$0.00");
-        humanMoney.setId("humanMoney");
         humanArea.getChildren().addAll();
+
+        discardButton = new Button("Discard");
+        discardButton.setId("discardButton");
+        root.setLeft(discardButton);
+        root.setAlignment(discardButton, Pos.BOTTOM_CENTER);
+
+        newGameButton = new Button("New Game");
+        addNewGameButtonEvent();
+        disableButton(newGameButton);
+        newGameButton.setId("newGameButton");
+        newGameButton.getStyleClass().add("disabled");
+        root.setRight(newGameButton);
+        root.setAlignment(newGameButton, Pos.BOTTOM_CENTER);
 
         /********END FRONT END*****************/
         Game.beginGame();
-        playerDiscard(root);
+        playerDiscard();
     }
 
     public static void updateHumanHand(List<Card> hand) {
@@ -103,23 +117,6 @@ public class Main extends Application {
         }
     }
 
-    private static class getButtonId implements EventHandler<Event>{
-        @Override
-        public void handle(Event evt) {
-            Integer cardId = Integer.parseInt(((Control)evt.getSource()).getId().substring(0, 1));
-
-            if (toBeDiscarded.contains(cardId)) {
-                toBeDiscarded.remove(cardId);
-                ((Control) evt.getSource()).getStyleClass().remove("addBorder");
-            }
-            else {
-                toBeDiscarded.add(cardId);
-                //((Control) evt.getSource()).getStyleClass().clear();
-                ((Control) evt.getSource()).getStyleClass().add("addBorder");
-            }
-        }
-    }
-
     public static void updateBotHand(List<Card> hand) {
         botArea.getChildren().clear();
         int i = 0;
@@ -138,24 +135,83 @@ public class Main extends Application {
         }
     }
 
-    public void playerDiscard(BorderPane root) {
-        Label currentAction = new Label("Choose your cards to discard");
+    private static class getButtonId implements EventHandler<Event>{
+        @Override
+        public void handle(Event evt) {
+            Integer cardId = Integer.parseInt(((Control)evt.getSource()).getId().substring(0, 1));
+
+            if (toBeDiscarded.contains(cardId)) {
+                toBeDiscarded.remove(cardId);
+                ((Control) evt.getSource()).getStyleClass().remove("addBorder");
+            }
+            else {
+                toBeDiscarded.add(cardId);
+                //((Control) evt.getSource()).getStyleClass().clear();
+                ((Control) evt.getSource()).getStyleClass().add("addBorder");
+            }
+        }
+    }
+
+    public static void changeCenterMessage(String message) {
+        Label currentAction = new Label(message);
         currentAction.setId("currentAction");
         root.setCenter(currentAction);
+    }
 
-        Button discardButton = new Button("Discard");
-        discardButton.setId("discardButton");
+    //overloaded method for debugging score values
+    public static void changeCenterMessage(String message, int playerScore, int botScore) {
+        Label currentAction = new Label(message + "\nPlayer score: " + playerScore + "\nBot score: " + botScore);
+        currentAction.setId("currentAction");
+        root.setCenter(currentAction);
+    }
+
+    public void playerDiscard() {
+        changeCenterMessage("Choose your cards to discard or choose to fold");
+        discardButton.getStyleClass().add("gameButton");
+        discardButton.getStyleClass().remove("discard");
         discardButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                humanArea.getChildren().remove(discardButton);
+                disableButton(discardButton);
                 firstTurn = false;
                 Game.discard(toBeDiscarded);
                 List<Card> deck = Card.getDeck();
                 Game.dealHuman(deck);
             }
         });
-        humanArea.getChildren().add(discardButton);
+
+    }
+
+    public void addNewGameButtonEvent() {
+        newGameButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                beginNewGame();
+            }
+        });
+    }
+
+    public static void disableButton(Button b) {
+        b.setDisable(true);
+        b.getStyleClass().remove("gameButton");
+        b.getStyleClass().add("disabled");
+    }
+
+    public static void enableButton(Button b) {
+        b.setDisable(false);
+        b.getStyleClass().add("gameButton");
+        b.getStyleClass().remove("disabled");
+    }
+
+    public static Button getNewGameButton() {
+        return newGameButton;
+    }
+
+    private void beginNewGame() {
+        disableButton(newGameButton);
+        firstTurn = true;
+        Game.emptyHands();
+        startGame();
     }
 }
 

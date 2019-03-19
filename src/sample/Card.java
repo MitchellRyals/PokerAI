@@ -3,6 +3,7 @@ package sample;
 import java.util.List;
 import java.util.ArrayList;
 
+//Card images courtesy of the ACBL
 public class Card {
     private final Rank rank;
     private final Suit suit;
@@ -26,7 +27,7 @@ public class Card {
 
     public String getImagePath() { return "sample/cards/" + suit + rank + ".png"; }
 
-    public Integer getRank() { return rank.ordinal() + 2; }
+    public int getRank() { return rank.ordinal() + 2; }
 
     public String getSuit() { return suit.toString(); }
 
