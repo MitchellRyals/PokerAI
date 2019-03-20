@@ -65,9 +65,7 @@ public class Game {
         List<Card> deck = Card.getDeck();
         dealHuman(deck);
         //todo: add bot turn here
-        System.out.println("CHECKING HUMAN -----------------------");
         int playerCardValue = getHandValue(humanHand);
-        System.out.println("CHECKING BOT -----------------------");
         int botCardValue = getHandValue(botHand);
 
         String winOrLose = compareHands(playerCardValue, botCardValue);
@@ -129,13 +127,29 @@ public class Game {
     }
 
     private static String compareHands(int humanHandValue, int botHandValue) {
+        //I also decided to do the betting setting/getting in this function
+        int humanMoney = Main.getPlayerCash();
+        int humanBet = Main.getPlayerBet();
+        int botMoney = Main.getBotCash();
+        int botBet = Main.getBotBet();
+        int betAmount = humanBet + botBet;
+
+        int newHumanMoney = humanMoney - humanBet;
+        int newBotMoney = botMoney - botBet;
+
         if (humanHandValue > botHandValue) {
+            Main.setPlayerCash(newHumanMoney + betAmount);
+            Main.setBotCash(newBotMoney);
             return "You win!";
         }
         else if (humanHandValue == botHandValue) {
             return "Draw!";
         }
-        else return "You lost!";
+        else {
+            Main.setPlayerCash(newHumanMoney);
+            Main.setBotCash(newBotMoney + betAmount);
+            return "You lost!";
+        }
     }
 
     //From here on is just functions that check for various card hands
@@ -194,18 +208,15 @@ public class Game {
             if (numEachCard[i] >= highest) {
                 //this inner if statement will check for 2 two-pairs.
                 if (numEachCard[i] == 2 && highest == 2) {
-                    System.out.println("double pair is true");
                     doubleTwoPair = true;
                 }
 
-                System.out.println("numEachCard[" + i + "]: " + numEachCard[i]);
                 highest = numEachCard[i];
                 index = i;
             }
         }
 
         //see card values up in the starred comment for why this return value is what it is.
-        System.out.println("highest: " + highest);
         switch (highest) {
             case 2:
                 if (doubleTwoPair) {

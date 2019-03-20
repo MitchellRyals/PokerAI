@@ -1,5 +1,7 @@
 package sample;
 
+//TODO: add fold functionality. Add calling. Add game over if statement and logic. Add bot.
+
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.scene.control.Button;
@@ -34,6 +36,8 @@ public class Main extends Application {
     private static Label humanMoney;
     private static int playerCash;
     private static int botCash;
+    private static int playerBet;
+    private static int botBet;
 
     @Override
     public void start(Stage primaryStage) {
@@ -53,7 +57,19 @@ public class Main extends Application {
                 startGame();
             }
         });
-        root.setCenter(startButton);
+
+        VBox title = new VBox();
+        title.setAlignment(Pos.CENTER);
+
+        Image titleImage = new Image("sample/cards/title.png");
+        ImageView titleImageView = new ImageView(titleImage);
+        titleImageView.setFitHeight(250);
+        titleImageView.setFitWidth(400);
+        title.getChildren().add(titleImageView);
+        title.getChildren().add(startButton);
+
+        root.setCenter(title);
+
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Poker");
@@ -71,20 +87,18 @@ public class Main extends Application {
         botAreaContainer.setMinHeight(250);
         root.setTop(botAreaContainer);
 
-        newGameButton = new Button("New Game");
-        setNewGameEvent();
-        newGameButton.setId("newGameButton");
-        newGameButton.getStyleClass().add("gameButton");
-        newGameButton.setLayoutX(5);
-        newGameButton.setLayoutY(5);
-        botAreaContainer.getChildren().add(newGameButton);
-        botAreaContainer.setAlignment(newGameButton, Pos.TOP_RIGHT);
-
         botArea.setId("botArea");
         botArea.setMinHeight(250);
         botArea.setAlignment(Pos.TOP_CENTER);
         botAreaContainer.getChildren().add(botArea);
         botAreaContainer.setAlignment(botArea, Pos.TOP_CENTER);
+
+        newGameButton = new Button("New Game");
+        setNewGameEvent();
+        newGameButton.setId("newGameButton");
+        newGameButton.getStyleClass().add("gameButton");
+        botAreaContainer.getChildren().add(newGameButton);
+        botAreaContainer.setAlignment(newGameButton, Pos.TOP_RIGHT);
 
         humanArea.setId("humanArea");
         humanArea.setMinHeight(250);
@@ -150,7 +164,6 @@ public class Main extends Application {
 
     private void setNewGameEvent() {
         newGameButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 disableButton(nextRoundButton);
                 firstTurn = true;
@@ -269,9 +282,17 @@ public class Main extends Application {
 
     public static int getPlayerCash() { return playerCash; }
     public static int getBotCash() { return botCash; }
+    public static int getPlayerBet() { return playerBet; }
+    public static int getBotBet() { return botBet; }
 
-    public static void setPlayerCash(int cash) { playerCash = cash; }
-    public static void setBotCash(int cash) { botCash = cash; }
+    public static void setPlayerCash(int cash) {
+        playerCash = cash;
+        humanMoney.setText("$" + Integer.toString(playerCash));
+    }
+    public static void setBotCash(int cash) {
+        botCash = cash;
+        botMoney.setText("$" + Integer.toString(botCash));
+    }
 
 
     //this pseudo class handles the discard button
@@ -292,4 +313,3 @@ public class Main extends Application {
         }
     }
 }
-
