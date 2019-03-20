@@ -3,8 +3,10 @@
 }
 
 .cashLabel {
-    -fx-background-color: black;
-    -fx-color: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-text-fill: white;
+    -fx-padding: 0 10 0 0;
 }
 
 #humanArea > .button {

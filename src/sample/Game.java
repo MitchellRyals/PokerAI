@@ -73,7 +73,7 @@ public class Game {
         String winOrLose = compareHands(playerCardValue, botCardValue);
         Main.changeCenterMessage(winOrLose, playerCardValue, botCardValue);
         //this line might look like spaghetti and it probably is but it uses a getter to avoid having 2 identical functions in main
-        Main.enableButton(Main.getNewGameButton());
+        Main.enableButton(Main.getNextRoundButton());
     }
 
     private static int getHandValue(List<Card> hand) {
@@ -119,7 +119,7 @@ public class Game {
         //this array will hold the number of each card in order to avoid redundant checking for pairs
         int[] numEachCard = new int[15];
 
-        for (i = 2; i < valueList.length; i++) {
+        for (i = 0; i < valueList.length; i++) {
             int value = valueList[i];
             numEachCard[value]++;
         }
@@ -186,7 +186,6 @@ public class Game {
     }
 
     private static int checkForPairs(int[] numEachCard) {
-        //todo: need to find the bug here that is causing the wrong numbers to come out.
         int highest = -1;
         int index = -1;
         boolean doubleTwoPair = false;
