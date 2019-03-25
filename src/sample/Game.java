@@ -152,7 +152,7 @@ public class Game {
         }
     }
 
-    //From here on is just functions that check for various card hands
+    //From here on is just functions that check for various card hands a function that empties the hands
     private static boolean isFlush(String[] suitList) {
         //compare the last and first suit of the already sorted array to check for a flush
         return (suitList[suitList.length - 1] == suitList[0]);

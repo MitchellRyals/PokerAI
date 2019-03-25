@@ -30,10 +30,14 @@ public class Main extends Application {
     private static Button newGameButton;
     private static Button nextRoundButton;
     private static Button foldButton;
+    private static Button increasePlayerBet;
+    private static Button decreasePlayerBet;
     private static VBox moneyContainer;
     private static VBox playerButtonContainer;
     private static Label botMoney;
+    private static Label botBetLabel;
     private static Label humanMoney;
+    private static Label humanBetLabel;
     private static int playerCash;
     private static int botCash;
     private static int playerBet;
@@ -130,6 +134,24 @@ public class Main extends Application {
         moneyContainer.setVgrow(moneyContainerSeparator, Priority.ALWAYS);
         moneyContainer.getChildren().addAll(moneyContainerSeparator);
 
+        increasePlayerBet = new Button("Bet +10");
+        setBetButtonEvent(increasePlayerBet, 10);
+        increasePlayerBet.setId("increasePlayerBet");
+        increasePlayerBet.getStyleClass().add("gameButton");
+        increasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
+        moneyContainer.getChildren().addAll(increasePlayerBet);
+
+        humanBetLabel = new Label("Betting:\n$0.00");
+        humanBetLabel.getStyleClass().add("cashLabel");
+        moneyContainer.getChildren().addAll(humanBetLabel);
+
+        decreasePlayerBet = new Button("Bet -10");
+        setBetButtonEvent(decreasePlayerBet,-10);
+        decreasePlayerBet.setId("decreasePlayerBet");
+        decreasePlayerBet.getStyleClass().add("gameButton");
+        decreasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
+        moneyContainer.getChildren().addAll(decreasePlayerBet);
+
         humanMoney = new Label("$" + Integer.toString(playerCash));
         humanMoney.getStyleClass().add("cashLabel");
         moneyContainer.getChildren().addAll(humanMoney);
@@ -170,6 +192,21 @@ public class Main extends Application {
                 Game.emptyHands();
                 resetCashValues();
                 startGame();
+            }
+        });
+    }
+
+    private void setBetButtonEvent(Button button, int betValue) {
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                //only allow this button to do anything after discarding
+                if (!firstTurn) {
+                    //do not let betting go over the player's cash or be less than 10
+                    if (playerBet + betValue <= playerCash && playerBet + betValue > 0) {
+                        playerBet += betValue;
+                        setPlayerBetLabel(playerBet);
+                    }
+                }
             }
         });
     }
@@ -243,6 +280,7 @@ public class Main extends Application {
                 Game.discard(toBeDiscarded);
                 List<Card> deck = Card.getDeck();
                 Game.dealHuman(deck);
+                playerBet = 0;
             }
         });
 
@@ -292,6 +330,9 @@ public class Main extends Application {
     public static void setBotCash(int cash) {
         botCash = cash;
         botMoney.setText("$" + Integer.toString(botCash));
+    }
+    public static void setPlayerBetLabel(int betAmount) {
+        humanBetLabel.setText("Betting:\n$" + Integer.toString(betAmount));
     }
 
 
