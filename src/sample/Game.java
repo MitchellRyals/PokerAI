@@ -63,7 +63,11 @@ public class Game {
 
         List<Card> deck = Card.getDeck();
         dealHuman(deck);
+    }
+
+    public static void postDiscardRound() {
         //todo: add bot turn here
+        Main.changeCenterMessage("Choose a bet amount or fold");
         finalizeRound(); //todo: replace this line with a fold/bet/call round
     }
 

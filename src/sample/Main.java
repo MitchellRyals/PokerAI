@@ -135,6 +135,7 @@ public class Main extends Application {
 
         increasePlayerBet = new Button("Bet +10");
         addBetButtonEvent(increasePlayerBet, 10);
+        disableButton(increasePlayerBet);
         increasePlayerBet.setId("increasePlayerBet");
         increasePlayerBet.getStyleClass().add("gameButton");
         increasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -146,6 +147,7 @@ public class Main extends Application {
 
         decreasePlayerBet = new Button("Bet -10");
         addBetButtonEvent(decreasePlayerBet,-10);
+        disableButton(decreasePlayerBet);
         decreasePlayerBet.setId("decreasePlayerBet");
         decreasePlayerBet.getStyleClass().add("gameButton");
         decreasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -174,6 +176,7 @@ public class Main extends Application {
         playerButtonContainer.getChildren().addAll(foldButton);
 
         discardButton = new Button("Discard");
+        addDiscardButtonEvent();
         discardButton.setId("discardButton");
         discardButton.getStyleClass().add("gameButton");
         discardButton.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -181,7 +184,7 @@ public class Main extends Application {
 
         /********END FRONT END*****************/
         Game.beginGame();
-        playerDiscard();
+        changeCenterMessage("Choose your cards to discard or choose to fold");
     }
 
     private void addNewGameEvent() {
@@ -229,6 +232,21 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 beginNextRound();
+            }
+        });
+    }
+
+    public void addDiscardButtonEvent() {
+        discardButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                disableButton(discardButton);
+                firstTurn = false;
+                playerBet = 0;
+                enableButton(increasePlayerBet);
+                enableButton(decreasePlayerBet);
+                Game.discard(toBeDiscarded);
+                Game.postDiscardRound();
             }
         });
     }
@@ -304,21 +322,6 @@ public class Main extends Application {
         root.setCenter(currentAction);
     }
 
-    public void playerDiscard() {
-        changeCenterMessage("Choose your cards to discard or choose to fold");
-        discardButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                disableButton(discardButton);
-                firstTurn = false;
-                Game.discard(toBeDiscarded);
-                List<Card> deck = Card.getDeck();
-                Game.dealHuman(deck);
-                playerBet = 0;
-            }
-        });
-    }
-
     private void beginNextRound() {
         disableButton(nextRoundButton);
         firstTurn = true;
@@ -345,7 +348,7 @@ public class Main extends Application {
     }
 
 
-    //this pseudo class handles the discard button
+    //this pseudo class handles the discarding of cards when the discard button is clicked
     private static class getButtonId implements EventHandler<Event>{
         @Override
         public void handle(Event evt) {
