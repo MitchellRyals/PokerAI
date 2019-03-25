@@ -20,11 +20,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main extends Application {
-    final int INITIAL_CASH = 100;
+    private final int INITIAL_CASH = 100;
     private static HBox botArea = new HBox();
     private static HBox humanArea = new HBox();
-    private static List<Integer> toBeDiscarded = new ArrayList<>();
-    private static boolean firstTurn = true;
     private static BorderPane root;
     private static Button discardButton;
     private static Button newGameButton;
@@ -41,7 +39,9 @@ public class Main extends Application {
     private static int playerCash;
     private static int botCash;
     private static int playerBet;
-    private static int botBet;
+    private static int botBet = 10; //set to 10 for debugging until I add the bot
+    private static boolean firstTurn = true;
+    private static List<Integer> toBeDiscarded = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) {
@@ -74,7 +74,6 @@ public class Main extends Application {
 
         root.setCenter(title);
 
-
         primaryStage.setScene(scene);
         primaryStage.setTitle("Poker");
         primaryStage.show();
@@ -98,7 +97,7 @@ public class Main extends Application {
         botAreaContainer.setAlignment(botArea, Pos.TOP_CENTER);
 
         newGameButton = new Button("New Game");
-        setNewGameEvent();
+        addNewGameEvent();
         newGameButton.setId("newGameButton");
         newGameButton.getStyleClass().add("gameButton");
         botAreaContainer.getChildren().add(newGameButton);
@@ -135,7 +134,7 @@ public class Main extends Application {
         moneyContainer.getChildren().addAll(moneyContainerSeparator);
 
         increasePlayerBet = new Button("Bet +10");
-        setBetButtonEvent(increasePlayerBet, 10);
+        addBetButtonEvent(increasePlayerBet, 10);
         increasePlayerBet.setId("increasePlayerBet");
         increasePlayerBet.getStyleClass().add("gameButton");
         increasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -146,7 +145,7 @@ public class Main extends Application {
         moneyContainer.getChildren().addAll(humanBetLabel);
 
         decreasePlayerBet = new Button("Bet -10");
-        setBetButtonEvent(decreasePlayerBet,-10);
+        addBetButtonEvent(decreasePlayerBet,-10);
         decreasePlayerBet.setId("decreasePlayerBet");
         decreasePlayerBet.getStyleClass().add("gameButton");
         decreasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -157,7 +156,7 @@ public class Main extends Application {
         moneyContainer.getChildren().addAll(humanMoney);
 
         nextRoundButton = new Button("Next Round");
-        addNewGameButtonEvent();
+        addNextRoundButtonEvent();
         disableButton(nextRoundButton);
         nextRoundButton.setId("nextRoundButton");
         nextRoundButton.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -168,6 +167,7 @@ public class Main extends Application {
         playerButtonContainer.getChildren().addAll(buttonContainerSeparator);
 
         foldButton = new Button("Fold");
+        addFoldButtonEvent();
         foldButton.setId("foldButton");
         foldButton.getStyleClass().add("gameButton");
         foldButton.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -184,7 +184,7 @@ public class Main extends Application {
         playerDiscard();
     }
 
-    private void setNewGameEvent() {
+    private void addNewGameEvent() {
         newGameButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 disableButton(nextRoundButton);
@@ -196,7 +196,7 @@ public class Main extends Application {
         });
     }
 
-    private void setBetButtonEvent(Button button, int betValue) {
+    private void addBetButtonEvent(Button button, int betValue) {
         button.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 //only allow this button to do anything after discarding
@@ -209,6 +209,40 @@ public class Main extends Application {
                 }
             }
         });
+    }
+
+    private void addFoldButtonEvent() {
+        foldButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                botCash += playerBet;
+                playerCash -= playerBet;
+                playerBet = 0;
+                setPlayerBetLabel(0);
+                setBotCash(botCash);
+                setPlayerCash(playerCash);
+            }
+        });
+    }
+
+    public void addNextRoundButtonEvent() {
+        nextRoundButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                beginNextRound();
+            }
+        });
+    }
+
+    public static void disableButton(Button b) {
+        b.setDisable(true);
+        b.getStyleClass().remove("gameButton");
+        b.getStyleClass().add("disabled");
+    }
+
+    public static void enableButton(Button b) {
+        b.setDisable(false);
+        b.getStyleClass().remove("disabled");
+        b.getStyleClass().add("gameButton");
     }
 
     private void resetCashValues() {
@@ -263,7 +297,7 @@ public class Main extends Application {
         root.setCenter(currentAction);
     }
 
-    //overloaded method for debugging score values
+    //overloaded method for displaying score values
     public static void changeCenterMessage(String message, int playerScore, int botScore) {
         Label currentAction = new Label(message + "\nPlayer score: " + playerScore + "\nBot score: " + botScore);
         currentAction.setId("currentAction");
@@ -283,41 +317,16 @@ public class Main extends Application {
                 playerBet = 0;
             }
         });
-
     }
 
-    public void addNewGameButtonEvent() {
-        nextRoundButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                beginNewGame();
-            }
-        });
-    }
-
-    public static void disableButton(Button b) {
-        b.setDisable(true);
-        b.getStyleClass().remove("gameButton");
-        b.getStyleClass().add("disabled");
-    }
-
-    public static void enableButton(Button b) {
-        b.setDisable(false);
-        b.getStyleClass().remove("disabled");
-        b.getStyleClass().add("gameButton");
-    }
-
-    private void beginNewGame() {
+    private void beginNextRound() {
         disableButton(nextRoundButton);
         firstTurn = true;
         Game.emptyHands();
         startGame();
     }
 
-    public static Button getNextRoundButton() {
-        return nextRoundButton;
-    }
-
+    public static Button getNextRoundButton() { return nextRoundButton; }
     public static int getPlayerCash() { return playerCash; }
     public static int getBotCash() { return botCash; }
     public static int getPlayerBet() { return playerBet; }

@@ -14,7 +14,6 @@ public class Game {
         //deals 5 cards to both the bot and player
         dealHuman(deck);
         dealBot(deck);
-
     }
 
     public static void dealHuman(List<Card> deck) {
@@ -65,6 +64,10 @@ public class Game {
         List<Card> deck = Card.getDeck();
         dealHuman(deck);
         //todo: add bot turn here
+        finalizeRound(); //todo: replace this line with a fold/bet/call round
+    }
+
+    public static void finalizeRound() {
         int playerCardValue = getHandValue(humanHand);
         int botCardValue = getHandValue(botHand);
 
