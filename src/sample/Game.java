@@ -77,8 +77,26 @@ public class Game {
 
         String winOrLose = compareHands(playerCardValue, botCardValue);
         Main.changeCenterMessage(winOrLose, playerCardValue, botCardValue);
-        //this line might look like spaghetti and it probably is but it uses a getter to avoid having 2 identical functions in main
         Main.enableButton(Main.getNextRoundButton());
+    }
+
+    public static boolean checkGameOver(int playerCash, int botCash) {
+        String message;
+
+        if (playerCash <= 0) {
+            message = "You ran out of money.\nGame over.";
+            Main.changeCenterMessage(message);
+            Main.enableButton(Main.getNewGameButton());
+            return true;
+        }
+        else if (botCash <= 0) {
+            message = "The AI ran out of money.\nYou win.";
+            Main.changeCenterMessage(message);
+            Main.enableButton(Main.getNewGameButton());
+            return true;
+        }
+
+        return false;
     }
 
     private static int getHandValue(List<Card> hand) {

@@ -1,6 +1,6 @@
 package sample;
 
-//TODO: add fold functionality. Add calling. Add game over if statement and logic. Add bot.
+//TODO: Add calling. Add game over if statement and logic. Add bot.
 
 import javafx.application.Application;
 import javafx.event.Event;
@@ -30,6 +30,7 @@ public class Main extends Application {
     private static Button foldButton;
     private static Button increasePlayerBet;
     private static Button decreasePlayerBet;
+    private static Button callButton;
     private static VBox moneyContainer;
     private static VBox playerButtonContainer;
     private static Label botMoney;
@@ -123,6 +124,7 @@ public class Main extends Application {
         moneyContainer = new VBox();
         moneyContainer.setId("moneyContainer");
         moneyContainer.setAlignment(Pos.BOTTOM_CENTER);
+        moneyContainer.setSpacing(5);
         root.setRight(moneyContainer);
 
         botMoney = new Label("$" + Integer.toString(botCash));
@@ -164,16 +166,23 @@ public class Main extends Application {
         nextRoundButton.setMinWidth(playerButtonContainer.getPrefWidth());
         playerButtonContainer.getChildren().addAll(nextRoundButton);
 
-        Region buttonContainerSeparator = new Region();
-        playerButtonContainer.setVgrow(buttonContainerSeparator, Priority.ALWAYS);
-        playerButtonContainer.getChildren().addAll(buttonContainerSeparator);
-
         foldButton = new Button("Fold");
         addFoldButtonEvent();
         foldButton.setId("foldButton");
         foldButton.getStyleClass().add("gameButton");
         foldButton.setMinWidth(playerButtonContainer.getPrefWidth());
         playerButtonContainer.getChildren().addAll(foldButton);
+
+        Region buttonContainerSeparator = new Region();
+        playerButtonContainer.setVgrow(buttonContainerSeparator, Priority.ALWAYS);
+        playerButtonContainer.getChildren().addAll(buttonContainerSeparator);
+
+        callButton = new Button("Call");
+        addCallButtonEvent();
+        callButton.setId("callButton");
+        callButton.getStyleClass().add("gameButton");
+        callButton.setMinWidth(playerButtonContainer.getPrefWidth());
+        playerButtonContainer.getChildren().addAll(callButton);
 
         discardButton = new Button("Discard");
         addDiscardButtonEvent();
@@ -223,6 +232,21 @@ public class Main extends Application {
                 setPlayerBetLabel(0);
                 setBotCash(botCash);
                 setPlayerCash(playerCash);
+                changeCenterMessage("Folded. You lost $" + playerBet + "\nPress Next Round to continue.");
+                isGameOver(Game.checkGameOver(playerCash, botCash));
+            }
+        });
+    }
+
+    private void addCallButtonEvent() {
+        callButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                if (playerCash >= botBet) {
+                    playerBet = botBet;
+                }
+                setPlayerBetLabel(playerBet);
+                changeCenterMessage("Called for $" + playerBet + "\nPress Next Round to continue.");
+                Game.checkGameOver(playerCash, botCash);
             }
         });
     }
@@ -329,7 +353,12 @@ public class Main extends Application {
         startGame();
     }
 
+    private void isGameOver(boolean moneyZero) {
+        for ()
+    }
+
     public static Button getNextRoundButton() { return nextRoundButton; }
+    public static Button getNewGameButton() { return newGameButton; }
     public static int getPlayerCash() { return playerCash; }
     public static int getBotCash() { return botCash; }
     public static int getPlayerBet() { return playerBet; }
