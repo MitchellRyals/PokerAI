@@ -4,6 +4,7 @@ package sample;
 
 import javafx.application.Application;
 import javafx.event.Event;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.input.MouseEvent;
@@ -354,7 +355,11 @@ public class Main extends Application {
     }
 
     private void isGameOver(boolean moneyZero) {
-        for ()
+        if (moneyZero) {
+            for (Node b: playerButtonContainer.getChildren()) {
+                disableButton((Button) b);
+            }
+        }
     }
 
     public static Button getNextRoundButton() { return nextRoundButton; }
