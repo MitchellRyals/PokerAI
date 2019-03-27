@@ -1,6 +1,6 @@
 package sample;
 
-//TODO: Add calling. Add game over if statement and logic. Add bot.
+//TODO: Add calling. Add bot.
 
 import javafx.application.Application;
 import javafx.event.Event;
@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main extends Application {
+    //Most of these shouldn't have been static but by the time I realized most of the code was already done and it would require
+    //extensive work or an entire rewriting of all the code to fix. It won't be a problem but I am still disappointed by it
     private final int INITIAL_CASH = 100;
     private static HBox botArea = new HBox();
     private static HBox humanArea = new HBox();
@@ -175,6 +177,7 @@ public class Main extends Application {
         playerButtonContainer.getChildren().addAll(foldButton);
 
         Region buttonContainerSeparator = new Region();
+        buttonContainerSeparator.setId("separator");
         playerButtonContainer.setVgrow(buttonContainerSeparator, Priority.ALWAYS);
         playerButtonContainer.getChildren().addAll(buttonContainerSeparator);
 
@@ -227,14 +230,16 @@ public class Main extends Application {
     private void addFoldButtonEvent() {
         foldButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                botCash += playerBet;
-                playerCash -= playerBet;
-                playerBet = 0;
-                setPlayerBetLabel(0);
-                setBotCash(botCash);
-                setPlayerCash(playerCash);
-                changeCenterMessage("Folded. You lost $" + playerBet + "\nPress Next Round to continue.");
-                isGameOver(Game.checkGameOver(playerCash, botCash));
+                if (!firstTurn) {
+                    botCash += playerBet;
+                    playerCash -= playerBet;
+                    playerBet = 0;
+                    setPlayerBetLabel(0);
+                    setBotCash(botCash);
+                    setPlayerCash(playerCash);
+                    changeCenterMessage("Folded. You lost $" + playerBet + "\nPress Next Round to continue.");
+                    isGameOver(Game.checkGameOver(playerCash, botCash));
+                }
             }
         });
     }
@@ -242,12 +247,15 @@ public class Main extends Application {
     private void addCallButtonEvent() {
         callButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                if (playerCash >= botBet) {
-                    playerBet = botBet;
+                if (!firstTurn) {
+                    if (playerCash >= botBet) {
+                        playerBet = botBet;
+                    }
+                    setPlayerBetLabel(playerBet);
+                    changeCenterMessage("Called for $" + playerBet);
+                    disableButton(callButton);
+                    disableButton(foldButton);
                 }
-                setPlayerBetLabel(playerBet);
-                changeCenterMessage("Called for $" + playerBet + "\nPress Next Round to continue.");
-                Game.checkGameOver(playerCash, botCash);
             }
         });
     }
@@ -357,7 +365,8 @@ public class Main extends Application {
     private void isGameOver(boolean moneyZero) {
         if (moneyZero) {
             for (Node b: playerButtonContainer.getChildren()) {
-                disableButton((Button) b);
+                if (b.getId() != "separator")
+                    disableButton((Button) b);
             }
         }
     }

@@ -57,8 +57,8 @@ public class Game {
         Collections.sort(toBeDiscarded);
         Collections.reverse(toBeDiscarded);
 
-        for (Integer i: toBeDiscarded) {
-            humanHand.remove((int)i);
+        for (int i: toBeDiscarded) {
+            humanHand.remove(i);
         }
 
         List<Card> deck = Card.getDeck();
