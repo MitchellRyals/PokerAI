@@ -1,6 +1,6 @@
 package sample;
 
-//TODO: Add calling. Add bot.
+//TODO: Add bot. Modify Game's finalizeRound().
 
 import javafx.application.Application;
 import javafx.event.Event;
@@ -21,8 +21,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main extends Application {
-    //Most of these shouldn't have been static but by the time I realized most of the code was already done and it would require
-    //extensive work or an entire rewriting of all the code to fix. It won't be a problem but I am still disappointed by it
+    //Most of these shouldn't have been static but by the time I realized, most of the code was already done and it would require
+    //extensive work or an entire rewriting of all the code to fix. It shouldn't cause many (if any at all) issues, but I am still a little disappointed by it
+    //maybe some time after the semester is over I'll have enough time to fully fix it properly.
     private final int INITIAL_CASH = 100;
     private static HBox botArea = new HBox();
     private static HBox humanArea = new HBox();
@@ -46,6 +47,7 @@ public class Main extends Application {
     private static int botBet = 10; //set to 10 for debugging until I add the bot
     private static boolean firstTurn = true;
     private static List<Integer> toBeDiscarded = new ArrayList<>();
+    private static Bot bot;
 
     @Override
     public void start(Stage primaryStage) {
@@ -389,6 +391,7 @@ public class Main extends Application {
     public static void setPlayerBetLabel(int betAmount) {
         humanBetLabel.setText("Betting:\n$" + Integer.toString(betAmount));
     }
+    public static void setBotBet(int cash){ botBet = cash;}
 
 
     //this pseudo class handles the discarding of cards when the discard button is clicked

@@ -14,6 +14,8 @@ public class Game {
         //deals 5 cards to both the bot and player
         dealHuman(deck);
         dealBot(deck);
+
+        Bot.setHandValue(getHandValue(botHand));
     }
 
     public static void dealHuman(List<Card> deck) {
