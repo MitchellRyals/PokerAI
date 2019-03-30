@@ -53,18 +53,29 @@ public class Game {
         Main.updateBotHand(botHand);
     }
 
-    public static void discard(List<Integer> toBeDiscarded) {
+    public static void discard(List<Integer> toBeDiscarded, boolean isPlayer) {
         //this sort and reverse is so that I can remove elements without giving an out of bounds error due to
         //list resizing.
         Collections.sort(toBeDiscarded);
         Collections.reverse(toBeDiscarded);
 
-        for (int i: toBeDiscarded) {
-            humanHand.remove(i);
+        if (isPlayer) {
+            for (int i : toBeDiscarded) {
+                humanHand.remove(i);
+            }
+        }
+        else {
+            for (int i : toBeDiscarded) {
+                botHand.remove(i);
+            }
         }
 
         List<Card> deck = Card.getDeck();
-        dealHuman(deck);
+        if (isPlayer) {
+            dealHuman(deck);
+        }
+        else
+            dealBot(deck);
     }
 
     public static void postDiscardRound() {
@@ -138,6 +149,8 @@ public class Game {
                 //return 14 lower than a royal flush plus the value of the highest card value
                 return 126 + valueList[valueList.length -1];
             }
+
+            return 70 + valueList[valueList.length - 1];
         }
 
         //I am skipping the 0 and 1 spot of this array for simplicity's sake even though it may not be the most efficient.
@@ -182,7 +195,7 @@ public class Game {
     //From here on is just functions that check for various card hands a function that empties the hands
     private static boolean isFlush(String[] suitList) {
         //compare the last and first suit of the already sorted array to check for a flush
-        return (suitList[suitList.length - 1] == suitList[0]);
+        return (suitList[suitList.length - 1].equals(suitList[0]));
     }
 
     private static boolean isRoyalFlush(Integer[] valueList) {

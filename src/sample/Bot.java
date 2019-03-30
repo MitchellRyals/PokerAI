@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Bot {
@@ -24,14 +25,23 @@ public class Bot {
      * 141 = royal flush
      **********************************************/
 
-    public static int[] getDiscardChoice() {
-        int[] toBeDiscarded;
+    public static List<Integer> getDiscardChoice() {
+        List<Integer> toBeDiscarded = new ArrayList<Integer>();
         List<Card> hand = Game.getBotHand();
         List<Card> deck = Card.getDeck();
 
-        for (int i = 0; i < hand.size(); i++) {
+        String[] suitList = new String[5];
+        int i = 0;
 
+        for (Card c: hand) {
+            suitList[i] = c.getSuit().substring(0, 1);
+            i++;
         }
+
+        //we're going to have the bot play it safe and go for flushes if he has 4 matching suits
+        int resultOfFlushCheck = isFlush(suitList);
+        if (resultOfFlushCheck > -1)
+            toBeDiscarded.add(resultOfFlushCheck);
 
         return toBeDiscarded;
     }
@@ -55,11 +65,51 @@ public class Bot {
     private static double calculateChanceOfWinning() {
         List<Card> hand = Game.getBotHand();
         List<Card> deck = Card.getDeck();
+        int playerBet = Main.getPlayerBet();
 
         for (int i = 0; i < hand.size(); i++) {
 
         }
 
         return 0.5;
+    }
+
+    //A heavily modified variant of the function to check for flushes in the Game.java file. The difference is
+    //that it returns the index of the card to discard if the bot is close to getting a flush. Otherwise, -1
+    private static int isFlush(String[] suitList) {
+        int[] numEachSuit = new int[suitList.length];
+        /*************************
+         * clubs = 0
+         * spades = 1
+         * hearts = 2
+         * diamonds = 3
+         * these arbitrary numbers won't really be helpful for anything specific but they're being counted so I figured
+         * it would be good practice to at least write their indexes somewhere.
+         ************************/
+
+        for (String s: suitList) {
+            switch(s) {
+                case "c":
+                    numEachSuit[0]++;
+                    break;
+                case "s":
+                    numEachSuit[1]++;
+                    break;
+                case "h":
+                    numEachSuit[2]++;
+                    break;
+                case "d":
+                    numEachSuit[3]++;
+                    break;
+            }
+        }
+
+        for (int i = 0; i < numEachSuit.length; i++) {
+            if (numEachSuit[i] == 4) {
+
+            }
+        }
+
+        return -1;
     }
 }

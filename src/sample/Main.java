@@ -289,7 +289,7 @@ public class Main extends Application {
                 playerBet = 0;
                 enableButton(increasePlayerBet);
                 enableButton(decreasePlayerBet);
-                Game.discard(toBeDiscarded);
+                Game.discard(toBeDiscarded, true);
                 Game.postDiscardRound();
             }
         });
