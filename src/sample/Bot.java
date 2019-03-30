@@ -1,5 +1,8 @@
 package sample;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bot {
     private static int botHandValue;
 
@@ -21,6 +24,18 @@ public class Bot {
      * 141 = royal flush
      **********************************************/
 
+    public static int[] getDiscardChoice() {
+        int[] toBeDiscarded;
+        List<Card> hand = Game.getBotHand();
+        List<Card> deck = Card.getDeck();
+
+        for (int i = 0; i < hand.size(); i++) {
+
+        }
+
+        return toBeDiscarded;
+    }
+
     public static int getBetAmount() {
         double betMultiplier = 0;
         int currentCash = Main.getBotCash();
@@ -32,11 +47,19 @@ public class Bot {
         else
             betMultiplier = calculateChanceOfWinning();
 
-
-        return (int) Math.ceil((currentCash / 10) * betMultiplier) * 10;
+        int botBetAmount = (int) Math.ceil((currentCash / 10) * betMultiplier) * 10;
+        Main.changeBotActionMessage("Opponent bets $" + botBetAmount);
+        return botBetAmount;
     }
 
     private static double calculateChanceOfWinning() {
-        
+        List<Card> hand = Game.getBotHand();
+        List<Card> deck = Card.getDeck();
+
+        for (int i = 0; i < hand.size(); i++) {
+
+        }
+
+        return 0.5;
     }
 }

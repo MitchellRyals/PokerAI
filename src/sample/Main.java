@@ -35,19 +35,20 @@ public class Main extends Application {
     private static Button increasePlayerBet;
     private static Button decreasePlayerBet;
     private static Button callButton;
+    private static VBox centerLabelContainer;
     private static VBox moneyContainer;
     private static VBox playerButtonContainer;
     private static Label botMoney;
-    private static Label botBetLabel;
+    private static Label botActionLabel;
     private static Label humanMoney;
     private static Label humanBetLabel;
+    private static Label currentActionLabel;
     private static int playerCash;
     private static int botCash;
     private static int playerBet;
     private static int botBet = 10; //set to 10 for debugging until I add the bot
     private static boolean firstTurn = true;
     private static List<Integer> toBeDiscarded = new ArrayList<>();
-    private static Bot bot;
 
     @Override
     public void start(Stage primaryStage) {
@@ -114,10 +115,18 @@ public class Main extends Application {
         humanArea.setAlignment(Pos.BOTTOM_CENTER);
         root.setBottom(humanArea);
 
-        HBox cardArea = new HBox();
-        cardArea.setId("cardArea");
-        cardArea.setAlignment(Pos.CENTER);
-        root.setCenter(cardArea);
+        centerLabelContainer = new VBox();
+        centerLabelContainer.setId("centerLabelContainer");
+        centerLabelContainer.setAlignment(Pos.CENTER);
+        root.setCenter(centerLabelContainer);
+
+        currentActionLabel = new Label();
+        currentActionLabel.setId("currentAction");
+        centerLabelContainer.getChildren().addAll(currentActionLabel);
+
+        botActionLabel = new Label();
+        botActionLabel.setId("currentAction");
+        centerLabelContainer.getChildren().addAll(botActionLabel);
 
         playerButtonContainer = new VBox();
         playerButtonContainer.setId("playerButtonContainer");
@@ -345,16 +354,16 @@ public class Main extends Application {
     }
 
     public static void changeCenterMessage(String message) {
-        Label currentAction = new Label(message);
-        currentAction.setId("currentAction");
-        root.setCenter(currentAction);
+        currentActionLabel.setText(message);
     }
 
     //overloaded method for displaying score values
     public static void changeCenterMessage(String message, int playerScore, int botScore) {
-        Label currentAction = new Label(message + "\nPlayer score: " + playerScore + "\nBot score: " + botScore);
-        currentAction.setId("currentAction");
-        root.setCenter(currentAction);
+        currentActionLabel.setText(message + "\nPlayer score: " + playerScore + "\nBot score: " + botScore);
+    }
+
+    public static void changeBotActionMessage(String message) {
+        botActionLabel.setText(message);
     }
 
     private void beginNextRound() {

@@ -270,4 +270,6 @@ public class Game {
         humanHand.clear();
         botHand.clear();
     }
+
+    public static List<Card> getBotHand() { return botHand; }
 }
