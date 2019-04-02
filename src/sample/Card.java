@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Card {
     private final Rank rank;
     private final Suit suit;
-    private int imagePath;
     private static List<Card> deck;
 
     public enum Rank { TWO, THREE, FOUR, FIVE, SIX,
@@ -15,10 +14,9 @@ public class Card {
 
     public enum Suit { CLUBS, DIAMONDS, HEARTS, SPADES }
 
-    public Card(Rank rank, Suit suit, int imagePath) {
+    public Card(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
-        this.imagePath = imagePath;
     }
 
     public static void setDeck(List<Card> newDeck) {
@@ -37,13 +35,26 @@ public class Card {
         deck = new ArrayList<Card>();
         int i = 0;
 
-        for (Suit suit : Suit.values()) {
-            for (Rank rank : Rank.values()) {
-                deck.add(new Card(rank, suit, i));
+        for (Suit suit: Suit.values()) {
+            for (Rank rank: Rank.values()) {
+                deck.add(new Card(rank, suit));
                 i++;
             }
         }
 
         return deck;
+    }
+
+    public static List<Card> generateDebugHand() {
+        List<Card> debugHand = new ArrayList<Card>();
+
+        debugHand.add(new Card(Rank.ACE, Suit.HEARTS));
+        debugHand.add(new Card(Rank.FIVE, Suit.CLUBS));
+        debugHand.add(new Card(Rank.TEN, Suit.CLUBS));
+        debugHand.add(new Card(Rank.JACK, Suit.CLUBS));
+        debugHand.add(new Card(Rank.NINE, Suit.CLUBS));
+        Main.updateBotHand(debugHand);
+
+        return debugHand;
     }
 }

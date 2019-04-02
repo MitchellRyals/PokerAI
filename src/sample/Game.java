@@ -7,8 +7,7 @@ public class Game {
     private static List<Card> botHand = new ArrayList<Card>();
 
     public static void beginGame() {
-        List<Card> deck = new ArrayList<Card>();
-        deck = Card.createDeck();
+        List<Card> deck = Card.createDeck();
         Collections.shuffle(deck);
 
         //deals 5 cards to both the bot and player
@@ -22,7 +21,7 @@ public class Game {
         while (humanHand.size() < 5) {
             humanHand.add(deck.get(0));
             deck.remove(0);
-            Card.setDeck(deck);;
+            Card.setDeck(deck);
         }
 
         //this comparator is used to sort enums using a property. Essentially sorts my player hand
@@ -79,7 +78,14 @@ public class Game {
     }
 
     public static void postDiscardRound() {
-        //todo: add bot turn here
+        List<Integer> botDiscardList = Bot.getDiscardChoice();
+        discard(botDiscardList, false);
+
+        String botDiscard = "";
+        for (Integer i: botDiscardList)
+            botDiscard += i + " ";
+
+        Main.changeBotActionMessage("Bot discarded: " + botDiscard);
         Main.changeCenterMessage("Choose a bet amount or fold");
         finalizeRound(); //todo: replace this line with a fold/bet/call round
     }

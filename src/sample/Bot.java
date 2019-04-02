@@ -27,7 +27,8 @@ public class Bot {
 
     public static List<Integer> getDiscardChoice() {
         List<Integer> toBeDiscarded = new ArrayList<Integer>();
-        List<Card> hand = Game.getBotHand();
+        //List<Card> hand = Game.getBotHand();
+        List<Card> hand = Card.generateDebugHand();
         List<Card> deck = Card.getDeck();
 
         String[] suitList = new String[5];
@@ -38,7 +39,7 @@ public class Bot {
             i++;
         }
 
-        //we're going to have the bot play it safe and go for flushes if he has 4 matching suits
+        //we're going to have the bot go for high probability wins here by going for flushes if he has 4 matching suits
         int resultOfFlushCheck = isFlush(suitList);
         if (resultOfFlushCheck > -1)
             toBeDiscarded.add(resultOfFlushCheck);
@@ -77,39 +78,34 @@ public class Bot {
     //A heavily modified variant of the function to check for flushes in the Game.java file. The difference is
     //that it returns the index of the card to discard if the bot is close to getting a flush. Otherwise, -1
     private static int isFlush(String[] suitList) {
-        int[] numEachSuit = new int[suitList.length];
-        /*************************
-         * clubs = 0
-         * spades = 1
-         * hearts = 2
-         * diamonds = 3
-         * these arbitrary numbers won't really be helpful for anything specific but they're being counted so I figured
-         * it would be good practice to at least write their indexes somewhere.
-         ************************/
+        int forwardSearch = 0;
+        int backwardSearch = suitList.length - 1;
 
-        for (String s: suitList) {
-            switch(s) {
-                case "c":
-                    numEachSuit[0]++;
-                    break;
-                case "s":
-                    numEachSuit[1]++;
-                    break;
-                case "h":
-                    numEachSuit[2]++;
-                    break;
-                case "d":
-                    numEachSuit[3]++;
-                    break;
-            }
-        }
+        // Two recursion calls, using the same idea as quick sort. They start from both ends and
+        // recursively call themselves towards the other side. If they end in the same index value, it gets discarded
+        // as it means the bot is 1 off from a flush.
+        forwardSearch = findFlushForward(suitList, forwardSearch);
+        backwardSearch = findFlushBackward(suitList, backwardSearch);
 
-        for (int i = 0; i < numEachSuit.length; i++) {
-            if (numEachSuit[i] == 4) {
+        if (forwardSearch == backwardSearch)
+            return forwardSearch;
+        else
+            return -1;
+    }
 
-            }
-        }
+    //recursively calls itself to find if one of the suits is missing
+    private static int findFlushForward(String[] suitList, int i) {
+        if (!suitList[i].equals(suitList[i+1]) && i < suitList.length - 1)
+            return i + 1;
+        else
+            return findFlushForward(suitList, i + 1);
+    }
 
-        return -1;
+    //recursively calls itself to find if one of the suits is missing.
+    private static int findFlushBackward(String[] suitList, int i) {
+        if (!suitList[i].equals(suitList[i-1]) && i >= 1)
+            return i - 1;
+        else
+            return findFlushBackward(suitList, i - 1);
     }
 }
