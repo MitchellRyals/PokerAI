@@ -86,7 +86,7 @@ public class Bot {
         // as it means the bot is 1 off from a flush.
         forwardSearch = findFlushForward(suitList, forwardSearch);
         backwardSearch = findFlushBackward(suitList, backwardSearch);
-
+        //todo: add start and end cases, have him discard for a straight possibly. Otherwise have him discard things not in a value range
         if (forwardSearch == backwardSearch)
             return forwardSearch;
         else

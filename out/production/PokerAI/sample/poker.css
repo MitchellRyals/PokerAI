@@ -28,6 +28,17 @@
     -fx-text-fill: white;
 }
 
+#currentBotAction {
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-text-fill: white;
+}
+
+.separator {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
 .addBorder {
     -fx-border-color: skyblue;
     -fx-border-width: 5;

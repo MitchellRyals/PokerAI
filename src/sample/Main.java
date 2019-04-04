@@ -7,9 +7,11 @@ import javafx.event.Event;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.Separator;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.Scene;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -122,10 +124,16 @@ public class Main extends Application {
 
         currentActionLabel = new Label();
         currentActionLabel.setId("currentAction");
+        currentActionLabel.setTextAlignment(TextAlignment.CENTER);
         centerLabelContainer.getChildren().addAll(currentActionLabel);
 
+        Separator horizontalRule = new Separator();
+        horizontalRule.setId("separator");
+        centerLabelContainer.getChildren().addAll(horizontalRule);
+
         botActionLabel = new Label();
-        botActionLabel.setId("currentAction");
+        botActionLabel.setId("currentBotAction");
+        botActionLabel.setTextAlignment(TextAlignment.CENTER);
         centerLabelContainer.getChildren().addAll(botActionLabel);
 
         playerButtonContainer = new VBox();
@@ -242,6 +250,7 @@ public class Main extends Application {
         foldButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (!firstTurn) {
+                    disableButton(foldButton);
                     botCash += playerBet;
                     playerCash -= playerBet;
                     playerBet = 0;

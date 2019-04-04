@@ -78,6 +78,7 @@ public class Game {
     }
 
     public static void postDiscardRound() {
+        int botBetAmount = Bot.getBetAmount();
         List<Integer> botDiscardList = Bot.getDiscardChoice();
         discard(botDiscardList, false);
 
@@ -86,8 +87,8 @@ public class Game {
             botDiscard += i + " ";
 
         Main.changeBotActionMessage("Bot discarded: " + botDiscard);
-        Main.changeCenterMessage("Choose a bet amount or fold");
-        finalizeRound(); //todo: replace this line with a fold/bet/call round
+        Main.changeCenterMessage("Your opponent bet $" + botBetAmount + "\nChoose to call, fold, \nor choose a bet amount and press raise.");
+        //finalizeRound(); //todo: replace this line with a fold/bet/call round
     }
 
     public static void finalizeRound() {
