@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Card {
     private final Rank rank;
     private final Suit suit;
+    private final int id;
     private static List<Card> deck;
 
     public enum Rank { TWO, THREE, FOUR, FIVE, SIX,
@@ -15,9 +16,10 @@ public class Card {
 
     public enum Suit { CLUBS, DIAMONDS, HEARTS, SPADES }
 
-    public Card(Rank rank, Suit suit) {
+    public Card(Rank rank, Suit suit, int id) {
         this.rank = rank;
         this.suit = suit;
+        this.id = id;
     }
 
     public static void setDeck(List<Card> newDeck) {
@@ -30,6 +32,8 @@ public class Card {
 
     public String getSuit() { return suit.toString(); }
 
+    public int getId() { return id; }
+
     public static List<Card> getDeck() { return deck; }
 
     public static List<Card> createDeck() {
@@ -38,7 +42,7 @@ public class Card {
 
         for (Suit suit: Suit.values()) {
             for (Rank rank: Rank.values()) {
-                deck.add(new Card(rank, suit));
+                deck.add(new Card(rank, suit, i));
                 i++;
             }
         }
@@ -49,11 +53,11 @@ public class Card {
     public static List<Card> generateDebugHand() {
         List<Card> debugHand = new ArrayList<Card>();
 
-        debugHand.add(new Card(Rank.ACE, Suit.CLUBS));
-        debugHand.add(new Card(Rank.FIVE, Suit.HEARTS));
-        debugHand.add(new Card(Rank.TEN, Suit.CLUBS));
-        debugHand.add(new Card(Rank.JACK, Suit.CLUBS));
-        debugHand.add(new Card(Rank.NINE, Suit.HEARTS));
+        debugHand.add(new Card(Rank.ACE, Suit.HEARTS, 38));
+        debugHand.add(new Card(Rank.FIVE, Suit.HEARTS, 29));
+        debugHand.add(new Card(Rank.TEN, Suit.HEARTS, 34));
+        debugHand.add(new Card(Rank.JACK, Suit.HEARTS, 35));
+        debugHand.add(new Card(Rank.NINE, Suit.CLUBS, 7));
         Main.updateBotHand(debugHand);
 
         return debugHand;

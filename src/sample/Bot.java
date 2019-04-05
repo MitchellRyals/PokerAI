@@ -129,6 +129,11 @@ class GeneticAlgorithm {
         List<Card> untouchedDeck = Card.createDeck();
         ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
 
+        //subtract the cards in his hand from the deck
+        for (Card c: actualBotHand)
+            untouchedDeck.remove(c.getId());
+
+
         //list-ception
         ArrayList<ArrayList<Card>> population = new ArrayList<ArrayList<Card>>();
 
@@ -138,7 +143,7 @@ class GeneticAlgorithm {
             population.add(geneticAlgorithmGenerateHand(copyDeck));
         }
 
-        DELETELATER.add(1);
+        DELETELATER.add(-1);
         return DELETELATER;
     }
 
