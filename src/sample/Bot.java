@@ -127,29 +127,54 @@ class GeneticAlgorithm {
         int generations = 200;
         int parents = populationSize/2;
         List<Card> untouchedDeck = Card.createDeck();
+        ArrayList<Integer> fitness = new ArrayList<Integer>();
         ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
 
-        //subtract the cards in his hand from the deck
+        //subtract the cards in his hand from the deck. this works because the deck isn't shuffled yet
         for (Card c: actualBotHand)
             untouchedDeck.remove(c.getId());
 
-
         //list-ception
-        ArrayList<ArrayList<Card>> population = new ArrayList<ArrayList<Card>>();
+        ArrayList<Integer> population = new ArrayList<Integer>();
 
+        //so this for loop goes through the population, generating copies of hands with random discards
+        //and gets their score, storing it in the fitness list. I then use the high scores later
         for (int i = 0; i < populationSize; i++) {
             ArrayList copyDeck = new ArrayList(untouchedDeck);
-            Collections.shuffle(untouchedDeck);
-            population.add(geneticAlgorithmGenerateHand(copyDeck));
+            List<Card> geneticHandCopy = new ArrayList<Card>(actualBotHand);
+            ArrayList<Integer> indexToDiscard = new ArrayList<>();
+
+            int amountToDiscard = (int) (Math.random() * 4);
+
+            for (int j = 0; j < amountToDiscard; j++) {
+                while (true) {
+                    int randomIndex = (int) (Math.random() * (geneticHandCopy.size() - 1));
+                    if (!indexToDiscard.contains(randomIndex)) {
+                        indexToDiscard.add(randomIndex);
+                        break;
+                    }
+                }
+            }
+
+            Collections.sort(indexToDiscard);
+            Collections.reverse(indexToDiscard);
+            for (int x : indexToDiscard)
+                geneticHandCopy.remove(x);
+
+            Collections.shuffle(copyDeck);
+            geneticAlgorithmFillHand(copyDeck, geneticHandCopy);
+
+            fitness.add(Game.getHandValue(geneticHandCopy));
         }
 
-        DELETELATER.add(-1);
+        for (int index = 0; index < fitness.size(); index++)
+            System.out.println(index + " fitness " + fitness.get(index));
+
+        DELETELATER.add(1);
         return DELETELATER;
     }
 
-    private ArrayList<Card> geneticAlgorithmGenerateHand(List<Card> deck) {
-        ArrayList<Card> hand = new ArrayList<Card>();
-
+    private List<Card> geneticAlgorithmFillHand(List<Card> deck, List<Card> hand) {
         while (hand.size() < 5) {
             hand.add(deck.get(0));
             deck.remove(0);

@@ -119,7 +119,7 @@ public class Game {
         return false;
     }
 
-    private static int getHandValue(List<Card> hand) {
+    public static int getHandValue(List<Card> hand) {
         /********************************************
          * CARD VALUES
          * 2-14 = 2, 3, 4, ... , Jack (11), Queen (12), King (13), Ace (14)
