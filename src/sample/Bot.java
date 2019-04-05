@@ -126,16 +126,17 @@ class GeneticAlgorithm {
         int populationSize = 100;
         int generations = 200;
         int parents = populationSize/2;
+        int[] fitnessMode = new int[141];
         List<Card> untouchedDeck = Card.createDeck();
         ArrayList<Integer> fitness = new ArrayList<Integer>();
         ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
+
+
 
         //subtract the cards in his hand from the deck. this works because the deck isn't shuffled yet
         for (Card c: actualBotHand)
             untouchedDeck.remove(c.getId());
 
-        //list-ception
-        ArrayList<Integer> population = new ArrayList<Integer>();
 
         //so this for loop goes through the population, generating copies of hands with random discards
         //and gets their score, storing it in the fitness list. I then use the high scores later
@@ -164,11 +165,13 @@ class GeneticAlgorithm {
             Collections.shuffle(copyDeck);
             geneticAlgorithmFillHand(copyDeck, geneticHandCopy);
 
-            fitness.add(Game.getHandValue(geneticHandCopy));
+            int fitnessScore = Game.getHandValue(geneticHandCopy);
+            fitnessMode[fitnessScore]++;
+            fitness.add(fitnessScore);
         }
 
         for (int index = 0; index < fitness.size(); index++)
-            System.out.println(index + " fitness " + fitness.get(index));
+            System.out.println(index + " fitness " + fitnessMode[index]);
 
         DELETELATER.add(1);
         return DELETELATER;
@@ -191,3 +194,5 @@ class GeneticAlgorithm {
         return hand;
     }
 }
+
+//TODO: find highest mode score above 14, pick two parents randomly from that and modify their discards from there.
