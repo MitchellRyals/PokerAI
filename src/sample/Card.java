@@ -49,10 +49,10 @@ public class Card {
         List<Card> debugHand = new ArrayList<Card>();
 
         debugHand.add(new Card(Rank.ACE, Suit.CLUBS));
-        debugHand.add(new Card(Rank.FIVE, Suit.CLUBS));
+        debugHand.add(new Card(Rank.FIVE, Suit.HEARTS));
         debugHand.add(new Card(Rank.TEN, Suit.CLUBS));
         debugHand.add(new Card(Rank.JACK, Suit.CLUBS));
-        debugHand.add(new Card(Rank.NINE, Suit.CLUBS));
+        debugHand.add(new Card(Rank.NINE, Suit.HEARTS));
         Main.updateBotHand(debugHand);
 
         return debugHand;

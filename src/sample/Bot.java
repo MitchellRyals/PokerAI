@@ -103,18 +103,19 @@ public class Bot {
 
     //recursively calls itself to find if one of the suits is missing
     private static int findFlushForward(String[] suitList, int i) {
-        if (i <= suitList.length - 2) {
-            if (!suitList[i].equals(suitList[i + 1]))
-                return i + 1;
-        }
+        if (i == suitList.length - 1)
+            return -1;
+        if (!suitList[i].equals(suitList[i + 1]))
+            return i + 1;
         return findFlushForward(suitList, i + 1);
     }
 
     //recursively calls itself to find if one of the suits is missing.
     private static int findFlushBackward(String[] suitList, int i) {
-        if (i >= 1)
-            if (!suitList[i].equals(suitList[i-1]))
-                return i - 1;
+        if (i == 0)
+            return -2; //so that the if statement in the previous function call doesn't evaluate to true with forward search
+        if (!suitList[i].equals(suitList[i-1]))
+            return i - 1;
         return findFlushBackward(suitList, i - 1);
     }
 }
