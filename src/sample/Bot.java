@@ -87,25 +87,34 @@ public class Bot {
         forwardSearch = findFlushForward(suitList, forwardSearch);
         backwardSearch = findFlushBackward(suitList, backwardSearch);
         //todo: add start and end cases, have him discard for a straight possibly. Otherwise have him discard things not in a value range
+
+        System.out.println("f: " + forwardSearch + ". b: " + backwardSearch);
+
+        //I had to have these if statements here to avoid having problems with the discard being the 0 and 4 cases
         if (forwardSearch == backwardSearch)
             return forwardSearch;
+        else if (forwardSearch == suitList.length - 1)
+            return forwardSearch;
+        else if (backwardSearch == 0)
+            return backwardSearch;
         else
             return -1;
     }
 
     //recursively calls itself to find if one of the suits is missing
     private static int findFlushForward(String[] suitList, int i) {
-        if (!suitList[i].equals(suitList[i+1]) && i < suitList.length - 1)
-            return i + 1;
-        else
-            return findFlushForward(suitList, i + 1);
+        if (i <= suitList.length - 2) {
+            if (!suitList[i].equals(suitList[i + 1]))
+                return i + 1;
+        }
+        return findFlushForward(suitList, i + 1);
     }
 
     //recursively calls itself to find if one of the suits is missing.
     private static int findFlushBackward(String[] suitList, int i) {
-        if (!suitList[i].equals(suitList[i-1]) && i >= 1)
-            return i - 1;
-        else
-            return findFlushBackward(suitList, i - 1);
+        if (i >= 1)
+            if (!suitList[i].equals(suitList[i-1]))
+                return i - 1;
+        return findFlushBackward(suitList, i - 1);
     }
 }

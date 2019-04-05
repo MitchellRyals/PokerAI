@@ -48,7 +48,7 @@ public class Card {
     public static List<Card> generateDebugHand() {
         List<Card> debugHand = new ArrayList<Card>();
 
-        debugHand.add(new Card(Rank.ACE, Suit.HEARTS));
+        debugHand.add(new Card(Rank.ACE, Suit.CLUBS));
         debugHand.add(new Card(Rank.FIVE, Suit.CLUBS));
         debugHand.add(new Card(Rank.TEN, Suit.CLUBS));
         debugHand.add(new Card(Rank.JACK, Suit.CLUBS));

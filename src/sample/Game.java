@@ -199,7 +199,14 @@ public class Game {
         }
     }
 
-    //From here on is just functions that check for various card hands a function that empties the hands
+    public static void emptyHands() {
+        humanHand.clear();
+        botHand.clear();
+    }
+
+    public static List<Card> getBotHand() { return botHand; }
+
+    //From here on it's just functions that check for various card hands a function that empties the hands
     private static boolean isFlush(String[] suitList) {
         //compare the last and first suit of the already sorted array to check for a flush
         return (suitList[suitList.length - 1].equals(suitList[0]));
@@ -285,11 +292,4 @@ public class Game {
                 //the default SHOULD return the last (literal highest card value) found card due to how the loop iterates.
         }
     }
-
-    public static void emptyHands() {
-        humanHand.clear();
-        botHand.clear();
-    }
-
-    public static List<Card> getBotHand() { return botHand; }
 }

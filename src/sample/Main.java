@@ -48,7 +48,7 @@ public class Main extends Application {
     private static int playerCash;
     private static int botCash;
     private static int playerBet;
-    private static int botBet = 10; //set to 10 for debugging until I add the bot
+    private static int botBet = 10; //todo remove this: set to 10 for debugging until I add the bot
     private static boolean firstTurn = true;
     private static List<Integer> toBeDiscarded = new ArrayList<>();
 
@@ -407,7 +407,7 @@ public class Main extends Application {
         botMoney.setText("$" + Integer.toString(botCash));
     }
     public static void setPlayerBetLabel(int betAmount) {
-        humanBetLabel.setText("Betting:\n$" + Integer.toString(betAmount));
+        humanBetLabel.setText("Bett ing:\n$" + Integer.toString(betAmount));
     }
     public static void setBotBet(int cash){ botBet = cash;}
 
