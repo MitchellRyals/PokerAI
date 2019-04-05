@@ -128,19 +128,17 @@ class GeneticAlgorithm {
         int parents = populationSize/2;
         int[] fitnessMode = new int[141];
         List<Card> untouchedDeck = Card.createDeck();
-        ArrayList<Integer> fitness = new ArrayList<Integer>();
         ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
-
-
+        List<GeneticFitness> populationList = new ArrayList<>();
 
         //subtract the cards in his hand from the deck. this works because the deck isn't shuffled yet
         for (Card c: actualBotHand)
             untouchedDeck.remove(c.getId());
 
-
         //so this for loop goes through the population, generating copies of hands with random discards
         //and gets their score, storing it in the fitness list. I then use the high scores later
         for (int i = 0; i < populationSize; i++) {
+            GeneticFitness currentSample = new GeneticFitness();
             ArrayList copyDeck = new ArrayList(untouchedDeck);
             List<Card> geneticHandCopy = new ArrayList<Card>(actualBotHand);
             ArrayList<Integer> indexToDiscard = new ArrayList<>();
@@ -148,6 +146,7 @@ class GeneticAlgorithm {
             int amountToDiscard = (int) (Math.random() * 4);
 
             for (int j = 0; j < amountToDiscard; j++) {
+                //this while loop ensures a unique discard value
                 while (true) {
                     int randomIndex = (int) (Math.random() * (geneticHandCopy.size() - 1));
                     if (!indexToDiscard.contains(randomIndex)) {
@@ -165,12 +164,13 @@ class GeneticAlgorithm {
             Collections.shuffle(copyDeck);
             geneticAlgorithmFillHand(copyDeck, geneticHandCopy);
 
-            int fitnessScore = Game.getHandValue(geneticHandCopy);
-            fitnessMode[fitnessScore]++;
-            fitness.add(fitnessScore);
+            currentSample.setDiscardList(indexToDiscard);
+            currentSample.setFitnessScore(Game.getHandValue(geneticHandCopy));
+            fitnessMode[currentSample.getFitnessScore()]++;
+            populationList.add(currentSample);
         }
 
-        for (int index = 0; index < fitness.size(); index++)
+        for (int index = 0; index < populationList.size(); index++)
             System.out.println(index + " fitness " + fitnessMode[index]);
 
         DELETELATER.add(1);
@@ -196,3 +196,4 @@ class GeneticAlgorithm {
 }
 
 //TODO: find highest mode score above 14, pick two parents randomly from that and modify their discards from there.
+//I'm thinking you'll need a data structure that holds both the list and fitness value in order to choose parents.
