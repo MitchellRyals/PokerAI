@@ -1,8 +1,6 @@
 package sample;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Bot {
     private static int botHandValue;
@@ -43,6 +41,9 @@ public class Bot {
         int resultOfFlushCheck = isFlush(suitList);
         if (resultOfFlushCheck > -1)
             toBeDiscarded.add(resultOfFlushCheck);
+
+        GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
+        toBeDiscarded.addAll(geneticAlgorithm.geneticAlgorithmDiscard(hand));
 
         return toBeDiscarded;
     }
@@ -86,9 +87,6 @@ public class Bot {
         // as it means the bot is 1 off from a flush.
         forwardSearch = findFlushForward(suitList, forwardSearch);
         backwardSearch = findFlushBackward(suitList, backwardSearch);
-        //todo: add start and end cases, have him discard for a straight possibly. Otherwise have him discard things not in a value range
-
-        System.out.println("f: " + forwardSearch + ". b: " + backwardSearch);
 
         //I had to have these if statements here to avoid having problems with the discard being the 0 and 4 cases
         if (forwardSearch == backwardSearch)
@@ -117,5 +115,49 @@ public class Bot {
         if (!suitList[i].equals(suitList[i-1]))
             return i - 1;
         return findFlushBackward(suitList, i - 1);
+    }
+}
+
+class GeneticAlgorithm {
+
+    //reference:
+    // https://github.com/ssemenova/Genetic-Poker/blob/master/algorithm.py
+    public ArrayList<Integer> geneticAlgorithmDiscard(List<Card> actualBotHand) {
+        int populationSize = 100;
+        int generations = 200;
+        int parents = populationSize/2;
+        List<Card> untouchedDeck = Card.createDeck();
+        ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
+
+        //list-ception
+        ArrayList<ArrayList<Card>> population = new ArrayList<ArrayList<Card>>();
+
+        for (int i = 0; i < populationSize; i++) {
+            ArrayList copyDeck = new ArrayList(untouchedDeck);
+            Collections.shuffle(untouchedDeck);
+            population.add(geneticAlgorithmGenerateHand(copyDeck));
+        }
+
+        DELETELATER.add(1);
+        return DELETELATER;
+    }
+
+    private ArrayList<Card> geneticAlgorithmGenerateHand(List<Card> deck) {
+        ArrayList<Card> hand = new ArrayList<Card>();
+
+        while (hand.size() < 5) {
+            hand.add(deck.get(0));
+            deck.remove(0);
+        }
+
+        Comparator comparator1 = new Comparator<Card>() {
+            public int compare(Card e1, Card e2) {
+                return e1.getRank() - e2.getRank();
+            }
+        };
+
+        Collections.sort(hand, comparator1);
+
+        return hand;
     }
 }
