@@ -164,13 +164,14 @@ class GeneticAlgorithm {
             Collections.shuffle(copyDeck);
             geneticAlgorithmFillHand(copyDeck, geneticHandCopy);
 
+            //add everything to the data structure
             currentSample.setDiscardList(indexToDiscard);
             currentSample.setFitnessScore(Game.getHandValue(geneticHandCopy));
             fitnessMode[currentSample.getFitnessScore()]++;
             populationList.add(currentSample);
         }
 
-        for (int index = 0; index < populationList.size(); index++)
+        for (int index = 0; index <= fitnessMode.length; index++)
             System.out.println(index + " fitness " + fitnessMode[index]);
 
         DELETELATER.add(1);
@@ -196,4 +197,3 @@ class GeneticAlgorithm {
 }
 
 //TODO: find highest mode score above 14, pick two parents randomly from that and modify their discards from there.
-//I'm thinking you'll need a data structure that holds both the list and fitness value in order to choose parents.

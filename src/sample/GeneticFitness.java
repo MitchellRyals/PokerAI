@@ -3,6 +3,7 @@ package sample;
 import java.util.ArrayList;
 
 public class GeneticFitness {
+    ArrayList<GeneticFitness> parents;
     ArrayList<Integer> discardList;
     int fitnessScore;
 
@@ -18,8 +19,14 @@ public class GeneticFitness {
 
     public void setFitnessScore(int fitnessScore) { this.fitnessScore = fitnessScore; }
 
+    public void addParent(GeneticFitness parent) { this.parents.add(parent); }
+
     public ArrayList<Integer> getDiscardList() { return discardList; }
 
     public int getFitnessScore() { return fitnessScore; }
+
+    public ArrayList<GeneticFitness> getAllParents() { return parents; }
+
+    public GeneticFitness getParent(int index) { return parents.get(index); }
 
 }
