@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Bot {
     private static int botHandValue;
+    private static int betAmount;
 
     public static void setHandValue(int value) {
         botHandValue = value;
@@ -47,7 +48,7 @@ public class Bot {
         return toBeDiscarded;
     }
 
-    public static int getBetAmount() {
+    public static void calculateBetAmount() {
         double betMultiplier;
         int currentCash = Main.getBotCash();
         //Possible values have a max of 141
@@ -60,8 +61,10 @@ public class Bot {
 
         int botBetAmount = (int) Math.ceil((currentCash / 10) * betMultiplier) * 10;
         Main.changeBotActionMessage("Opponent bets $" + botBetAmount);
-        return botBetAmount;
+        betAmount = botBetAmount;
     }
+
+    public static int getBetAmount() { return betAmount; }
 
     private static double calculateChanceOfWinning() {
         List<Card> hand = Game.getBotHand();

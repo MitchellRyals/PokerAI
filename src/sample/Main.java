@@ -53,7 +53,6 @@ public class Main extends Application {
     private static int playerCash;
     private static int botCash;
     private static int playerBet;
-    private static int botBet = 10; //todo remove this: set to 10 for debugging until I add the bot
     private static boolean firstTurn = true;
     private static List<Integer> toBeDiscarded = new ArrayList<>();
 
@@ -281,13 +280,14 @@ public class Main extends Application {
         raiseButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (!firstTurn) {
-                    if (playerBet > Bot.getBetAmount())
-                    setPlayerBetLabel(playerBet);
-                    changeCenterMessage("Raised for $" + playerBet);
-                    disableButton(callButton);
-                    disableButton(raiseButton);
-                    disableButton(foldButton);
-                    Game.finalizeRound();
+                    if (playerBet > Bot.getBetAmount()) {
+                        setPlayerBetLabel(playerBet);
+                        changeCenterMessage("Raised for $" + playerBet);
+                        disableButton(callButton);
+                        disableButton(raiseButton);
+                        disableButton(foldButton);
+                        Game.finalizeRound();
+                    }
                 }
             }
         });
@@ -297,7 +297,7 @@ public class Main extends Application {
         callButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (!firstTurn) {
-                    if (playerCash >= botBet)
+                    if (playerCash >= Bot.getBetAmount())
                         playerBet = Bot.getBetAmount();
                     else
                         playerBet = playerCash;
@@ -431,7 +431,6 @@ public class Main extends Application {
     public static int getPlayerCash() { return playerCash; }
     public static int getBotCash() { return botCash; }
     public static int getPlayerBet() { return playerBet; }
-    public static int getBotBet() { return botBet; }
 
     public static void setPlayerCash(int cash) {
         playerCash = cash;
@@ -444,7 +443,6 @@ public class Main extends Application {
     public static void setPlayerBetLabel(int betAmount) {
         humanBetLabel.setText("Betting:\n$" + Integer.toString(betAmount));
     }
-    public static void setBotBet(int cash){ botBet = cash;}
 
 
     //this pseudo class handles the discarding of cards when the discard button is clicked

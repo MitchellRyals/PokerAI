@@ -81,6 +81,7 @@ public class Game {
     }
 
     public static void postDiscardRound() {
+        Bot.calculateBetAmount();
         int botBetAmount = Bot.getBetAmount();
         List<Integer> botDiscardList = Bot.getDiscardChoice();
         discard(botDiscardList, false);
@@ -181,7 +182,7 @@ public class Game {
         int humanMoney = Main.getPlayerCash();
         int humanBet = Main.getPlayerBet();
         int botMoney = Main.getBotCash();
-        int botBet = Main.getBotBet();
+        int botBet = Bot.getBetAmount();
         int betAmount = humanBet + botBet;
 
         int newHumanMoney = humanMoney - humanBet;
