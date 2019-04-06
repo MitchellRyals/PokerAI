@@ -34,9 +34,7 @@ class GeneticAlgorithm {
         parentsList = createParentsFromCurrentGeneration(populationList);
 
         for (int i = 0; i < generations; i++) {
-            int choice1 = (int)(Math.random() * parentsList.size()/2 - 1);
-            int choice2 = (int)(Math.random() * parentsList.size()/2 - 1);
-            crossover(parentsList.get(choice1), parentsList.get(choice2));
+            populationList = evolvePopulation(parentsList, populationList);
         }
 
         Collections.sort(populationList, comparator);
@@ -66,22 +64,19 @@ class GeneticAlgorithm {
         return hand;
     }
 
-    private GeneticFitness crossover(GeneticFitness choice1, GeneticFitness choice2) {
-        GeneticFitness crossoverResult = new GeneticFitness();
-        List<Integer> choice1Discard = choice1.getDiscardList();
-        List<Integer> choice2Discard = choice2.getDiscardList();
-        List<Integer> crossoverDiscard = new ArrayList<>();
+    private ArrayList<Integer> crossover(GeneticFitness choice1, GeneticFitness choice2) {
+        ArrayList<Integer> choice1Discard = choice1.getDiscardList();
+        ArrayList<Integer> choice2Discard = choice2.getDiscardList();
+        ArrayList<Integer> crossoverDiscard = new ArrayList<>();
 
         if (choice1Discard.size() > 1) {
             for (int i = 0; i < choice1Discard.size(); i++)
                 if (Math.random() * choice1Discard.size() - 1 >= 0.5)
                     crossoverDiscard.add(choice1Discard.get(i));
-
-            //ensure at least SOMETHING makes it into the discard array
-            if (choice1Discard.isEmpty())
-                crossoverDiscard.add(choice1Discard.get(0));
         }
-        else
+
+        //ensure at least SOMETHING makes it into the discard array
+        if (crossoverDiscard.isEmpty())
             crossoverDiscard.add(choice1Discard.get(0));
 
         for (int i = 0; i < choice2Discard.size(); i++)
@@ -96,7 +91,7 @@ class GeneticAlgorithm {
                 crossoverDiscard.add(mutator);
         }
 
-        return crossoverResult;
+        return crossoverDiscard;
     }
 
     private List<GeneticFitness> createFirstGeneration(List<Card> untouchedDeck, List<Card> actualBotHand) {
@@ -110,12 +105,12 @@ class GeneticAlgorithm {
             List<Card> geneticHandCopy = new ArrayList<Card>(actualBotHand);
             ArrayList<Integer> indexToDiscard = new ArrayList<>();
 
-            int amountToDiscard = (int) (1 + (Math.random() * 4));
+            int amountToDiscard = (int) (1 + (Math.random() * 5));
 
             for (int j = 0; j < amountToDiscard; j++) {
                 //this while loop ensures a unique discard value
                 while (true) {
-                    int randomIndex = (int) (Math.random() * (geneticHandCopy.size() - 1));
+                    int randomIndex = (int) (Math.random() * (geneticHandCopy.size()));
                     if (!indexToDiscard.contains(randomIndex)) {
                         indexToDiscard.add(randomIndex);
                         break;
@@ -154,5 +149,15 @@ class GeneticAlgorithm {
         }
 
         return parentsList;
+    }
+
+    private List<GeneticFitness> evolvePopulation(List<GeneticFitness> parentsList, List<GeneticFitness> populationList) {
+        for (int i = 0; i < populationSize; i++) {
+            int choice1 = (int) (Math.random() * parentsList.size() / 2 - 1);
+            int choice2 = (int) (Math.random() * parentsList.size() / 2 - 1);
+            populationList.get(i).setDiscardList(crossover(parentsList.get(choice1), parentsList.get(choice2)));
+        }
+
+        return populationList;
     }
 }
