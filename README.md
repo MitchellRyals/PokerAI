@@ -14,6 +14,7 @@ The only thing backend here that is of interest is the way the cards are program
 
 ## Game.java
 Half of this class is the actual discarding, dealing hands, and game flow. The other half is a getHandValue() function that returns an integer score based on several factors. See this chart for the scores possible:
+
 ---
          /********************************************
          * CARD VALUES
