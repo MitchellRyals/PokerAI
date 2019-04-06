@@ -39,14 +39,18 @@ class GeneticAlgorithm {
             crossover(parentsList.get(choice1), parentsList.get(choice2));
         }
 
+        Collections.sort(populationList, comparator);
+        Collections.reverse(populationList);
+
+        int topPercentile = (int)(Math.random() * (populationList.size() * 0.1));
+        ArrayList<Integer> discardList = populationList.get(topPercentile).discardList;
+
         /*for (int index = 0; index < fitnessMode.length; index++)
             if (fitnessMode[index] > 0)
                 System.out.println(index + " fitness " + fitnessMode[index]);
                 */
 
-        ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
-        DELETELATER.add(3);
-        return DELETELATER;
+        return discardList;
     }
 
     private List<Card> geneticAlgorithmFillHand(List<Card> deck, List<Card> hand) {

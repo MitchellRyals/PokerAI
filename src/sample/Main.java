@@ -407,7 +407,7 @@ public class Main extends Application {
         botMoney.setText("$" + Integer.toString(botCash));
     }
     public static void setPlayerBetLabel(int betAmount) {
-        humanBetLabel.setText("Bett ing:\n$" + Integer.toString(betAmount));
+        humanBetLabel.setText("Betting:\n$" + Integer.toString(betAmount));
     }
     public static void setBotBet(int cash){ botBet = cash;}
 
