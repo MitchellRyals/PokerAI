@@ -86,6 +86,7 @@ public class Game {
         discard(botDiscardList, false);
 
         String botDiscard = "";
+        Collections.reverse(botDiscardList);
         for (Integer i: botDiscardList)
             botDiscard += i + " ";
 
