@@ -27,7 +27,6 @@ public class Bot {
         List<Integer> toBeDiscarded = new ArrayList<Integer>();
         List<Card> hand = Game.getBotHand();
         //List<Card> hand = Card.generateDebugHand();
-        List<Card> deck = Card.getDeck();
 
         String[] suitList = new String[5];
         int i = 0;
@@ -66,7 +65,6 @@ public class Bot {
 
     private static double calculateChanceOfWinning() {
         List<Card> hand = Game.getBotHand();
-        List<Card> deck = Card.getDeck();
         int playerBet = Main.getPlayerBet();
 
         for (int i = 0; i < hand.size(); i++) {
@@ -127,8 +125,9 @@ class GeneticAlgorithm {
         int generations = 200;
         int parents = populationSize/2;
         int[] fitnessMode = new int[142];
-        List<Card> untouchedDeck = Card.getDeck();
-        //List<Card> untouchedDeck = Card.createDeck();
+        //List<Card> untouchedDeck = Card.getDeck();
+        Card geneticCardDeck = new Card();
+        List<Card> untouchedDeck = geneticCardDeck.createDeck();
         ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
         List<GeneticFitness> populationList = new ArrayList<>();
 

@@ -22,8 +22,14 @@ public class Card {
         this.id = id;
     }
 
-    public static void setDeck(List<Card> newDeck) {
-        deck = newDeck;
+    public Card() {
+        this.rank = Rank.TWO;
+        this.suit = Suit.CLUBS;
+        id = -1;
+    };
+
+    public void setDeck(List<Card> newDeck) {
+        this.deck = newDeck;
     }
 
     public String getImagePath() { return "sample/cards/" + suit + rank + ".png"; }
@@ -34,20 +40,20 @@ public class Card {
 
     public int getId() { return id; }
 
-    public static List<Card> getDeck() { return deck; }
+    public List<Card> getDeck() { return this.deck; }
 
     public List<Card> createDeck() {
-        deck = new ArrayList<Card>();
+        this.deck = new ArrayList<Card>();
         int i = 0;
 
         for (Suit suit: Suit.values()) {
             for (Rank rank: Rank.values()) {
-                deck.add(new Card(rank, suit, i));
+                this.deck.add(new Card(rank, suit, i));
                 i++;
             }
         }
 
-        return deck;
+        return this.deck;
     }
 
     public static List<Card> generateDebugHand() {

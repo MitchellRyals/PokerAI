@@ -5,9 +5,11 @@ import java.util.*;
 public class Game {
     private static List<Card> humanHand = new ArrayList<Card>();
     private static List<Card> botHand = new ArrayList<Card>();
+    private static Card card;
 
     public static void beginGame() {
-        List<Card> deck = Card.createDeck();
+        card = new Card();
+        List<Card> deck = card.createDeck();
         Collections.shuffle(deck);
 
         //deals 5 cards to both the bot and player
@@ -21,7 +23,7 @@ public class Game {
         while (humanHand.size() < 5) {
             humanHand.add(deck.get(0));
             deck.remove(0);
-            Card.setDeck(deck);
+            card.setDeck(deck);
         }
 
         //this comparator is used to sort enums using a property. Essentially sorts my player hand
@@ -69,7 +71,7 @@ public class Game {
             }
         }
 
-        List<Card> deck = Card.getDeck();
+        List<Card> deck = card.getDeck();
         if (isPlayer) {
             dealHuman(deck);
         }
