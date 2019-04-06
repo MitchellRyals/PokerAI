@@ -123,7 +123,7 @@ class GeneticAlgorithm {
     //reference:
     // https://github.com/ssemenova/Genetic-Poker/blob/master/algorithm.py
     public ArrayList<Integer> geneticAlgorithmDiscard(List<Card> actualBotHand) {
-        int populationSize = 100;
+        int populationSize = 200;
         int generations = 200;
         int parents = populationSize/2;
         int[] fitnessMode = new int[141];
@@ -137,7 +137,7 @@ class GeneticAlgorithm {
 
         //so this for loop goes through the population, generating copies of hands with random discards
         //and gets their score, storing it in the fitness list. I then use the high scores later
-        for (int i = 0; i < populationSize; i++) {
+        for (int i = 0; i < parents; i++) {
             GeneticFitness currentSample = new GeneticFitness();
             ArrayList copyDeck = new ArrayList(untouchedDeck);
             List<Card> geneticHandCopy = new ArrayList<Card>(actualBotHand);
@@ -171,7 +171,7 @@ class GeneticAlgorithm {
             populationList.add(currentSample);
         }
 
-        for (int index = 0; index <= fitnessMode.length; index++)
+        for (int index = 0; index < fitnessMode.length; index++)
             System.out.println(index + " fitness " + fitnessMode[index]);
 
         DELETELATER.add(1);
