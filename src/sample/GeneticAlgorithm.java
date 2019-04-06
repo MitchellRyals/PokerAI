@@ -36,6 +36,7 @@ class GeneticAlgorithm {
 
         for (int i = 0; i < generations; i++) {
             populationList = evolvePopulation(parentsList, populationList);
+            parentsList = createParentsFromCurrentGeneration(populationList);
         }
 
         Collections.sort(populationList, comparator);
