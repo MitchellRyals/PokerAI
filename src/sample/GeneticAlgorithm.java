@@ -11,8 +11,13 @@ class GeneticAlgorithm {
     private final int generations = 10;
     private final int numParents = populationSize/2;
     private int[] fitnessMode = new int[142]; //highest possible score
+    PrintWriter writer;
 
     public ArrayList<Integer> geneticAlgorithmDiscard(List<Card> actualBotHand) {
+        //this is moved up here so that I can continuously write in one file
+        try { writer = new PrintWriter("GeneticAlgorithmData.txt", "UTF-8"); }
+
+        catch (Exception e) { System.out.println("error"); }
         Card geneticCardDeck = new Card();
         List<Card> untouchedDeck = geneticCardDeck.createDeck();
         List<GeneticFitness> parentsList;
@@ -34,8 +39,9 @@ class GeneticAlgorithm {
 
         parentsList = createParentsFromCurrentGeneration(populationList);
 
-        for (int i = 0; i < generations; i++) {
+        for (int i = 1; i <= generations; i++) {
             populationList = evolvePopulation(parentsList, populationList);
+            writeToDataFile(populationList, i);
             parentsList = createParentsFromCurrentGeneration(populationList);
         }
 
@@ -49,6 +55,8 @@ class GeneticAlgorithm {
             if (fitnessMode[index] > 0)
                 System.out.println(index + " fitness " + fitnessMode[index]);
                 */
+
+        writer.close();
 
         return discardList;
     }
@@ -135,7 +143,7 @@ class GeneticAlgorithm {
             populationList.add(currentSample);
         }
 
-        writeToDataFile(populationList);
+        writeToDataFile(populationList, 0);
 
         return populationList;
     }
@@ -162,21 +170,17 @@ class GeneticAlgorithm {
             populationList.get(i).setDiscardList(crossover(parentsList.get(choice1), parentsList.get(choice2)));
         }
 
-        writeToDataFile(populationList);
-
         return populationList;
     }
 
-    private static void writeToDataFile(List<GeneticFitness> populationList) {
+    private void writeToDataFile(List<GeneticFitness> populationList, int currentGeneration) {
         try {
-            PrintWriter writer = new PrintWriter("GeneticAlgorithmData.txt", "UTF-8");
+            writer.print(currentGeneration + " ");
+            for (GeneticFitness individual: populationList)
+                writer.print(individual.getFitnessScore() + " ");
 
-            for (GeneticFitness individual: populationList) {
-                writer.println(individual.getFitnessScore());
-            }
-
-            writer.close();
+            writer.println();
         }
-        catch (Exception e) { System.out.println("error"); }
+        catch (Exception e) { e.printStackTrace(); }
     }
 }
