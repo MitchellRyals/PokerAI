@@ -19,6 +19,17 @@ public class Game {
         Bot.setHandValue(getHandValue(botHand));
     }
 
+    public static Comparator getComparator() {
+        //this comparator is used to sort enums using a property. Essentially sorts my player hand
+        Comparator comparator = new Comparator<Card>() {
+            public int compare(Card e1, Card e2) {
+                return e1.getRank() - e2.getRank();
+            }
+        };
+
+        return comparator;
+    }
+
     public static void dealHuman(List<Card> deck) {
         while (humanHand.size() < 5) {
             humanHand.add(deck.get(0));
@@ -26,14 +37,9 @@ public class Game {
             card.setDeck(deck);
         }
 
-        //this comparator is used to sort enums using a property. Essentially sorts my player hand
-        Comparator comparator1 = new Comparator<Card>() {
-            public int compare(Card e1, Card e2) {
-                return e1.getRank() - e2.getRank();
-            }
-        };
+        Comparator comparator = getComparator();
 
-        Collections.sort(humanHand, comparator1);
+        Collections.sort(humanHand, comparator);
         Main.updateHumanHand(humanHand);
     }
 
@@ -43,14 +49,9 @@ public class Game {
             deck.remove(0);
         }
 
-        //this comparator is used to sort enums using a property. Essentially sorts my bot hand
-        Comparator comparator1 = new Comparator<Card>() {
-            public int compare(Card e1, Card e2) {
-                return e1.getRank() - e2.getRank();
-            }
-        };
+        Comparator comparator = getComparator();
 
-        Collections.sort(botHand, comparator1);
+        Collections.sort(botHand, comparator);
         Main.updateBotHand(botHand);
     }
 

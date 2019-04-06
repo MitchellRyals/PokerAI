@@ -125,7 +125,6 @@ class GeneticAlgorithm {
         //List<Card> untouchedDeck = Card.getDeck();
         Card geneticCardDeck = new Card();
         List<Card> untouchedDeck = geneticCardDeck.createDeck();
-        ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
         List<GeneticFitness> populationList = new ArrayList<>();
 
         //subtract the cards in his hand from the deck. this works because the deck isn't shuffled yet
@@ -180,13 +179,14 @@ class GeneticAlgorithm {
         for (int i = 0; i < generations; i++) {
             int choice1 = (int)(Math.random() * populationList.size() - 1);
             int choice2 = (int)(Math.random() * populationList.size() - 1);
-            crossover(choice1, choice2);
+            //crossover(choice1, choice2);
         }
 
         for (int index = 0; index < fitnessMode.length; index++)
             if (fitnessMode[index] > 0)
                 System.out.println(index + " fitness " + fitnessMode[index]);
 
+        ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
         DELETELATER.add(3);
         return DELETELATER;
     }
@@ -197,13 +197,9 @@ class GeneticAlgorithm {
             deck.remove(0);
         }
 
-        Comparator comparator1 = new Comparator<Card>() {
-            public int compare(Card e1, Card e2) {
-                return e1.getRank() - e2.getRank();
-            }
-        };
+        Comparator comparator = Game.getComparator();
 
-        Collections.sort(hand, comparator1);
+        Collections.sort(hand, comparator);
 
         return hand;
     }
