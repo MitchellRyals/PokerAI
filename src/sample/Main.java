@@ -41,6 +41,7 @@ public class Main extends Application {
     private static Button increasePlayerBet;
     private static Button decreasePlayerBet;
     private static Button callButton;
+    private static Button raiseButton;
     private static VBox centerLabelContainer;
     private static VBox moneyContainer;
     private static VBox playerButtonContainer;
@@ -194,6 +195,7 @@ public class Main extends Application {
 
         foldButton = new Button("Fold");
         addFoldButtonEvent();
+        disableButton(foldButton);
         foldButton.setId("foldButton");
         foldButton.getStyleClass().add("gameButton");
         foldButton.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -204,8 +206,17 @@ public class Main extends Application {
         playerButtonContainer.setVgrow(buttonContainerSeparator, Priority.ALWAYS);
         playerButtonContainer.getChildren().addAll(buttonContainerSeparator);
 
+        raiseButton = new Button("Raise");
+        addRaiseButtonEvent();
+        disableButton(raiseButton);
+        raiseButton.setId("raiseButton");
+        raiseButton.getStyleClass().add("gameButton");
+        raiseButton.setMinWidth(playerButtonContainer.getPrefWidth());
+        playerButtonContainer.getChildren().addAll(raiseButton);
+
         callButton = new Button("Call");
         addCallButtonEvent();
+        disableButton(callButton);
         callButton.setId("callButton");
         callButton.getStyleClass().add("gameButton");
         callButton.setMinWidth(playerButtonContainer.getPrefWidth());
@@ -268,17 +279,33 @@ public class Main extends Application {
         });
     }
 
+    private void addRaiseButtonEvent() {
+        raiseButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                if (!firstTurn) {
+                    if (playerBet > Bot.getBetAmount())
+                    setPlayerBetLabel(playerBet);
+                    changeCenterMessage("Raised for $" + playerBet);
+                    disableButton(callButton);
+                    disableButton(raiseButton);
+                    disableButton(foldButton);
+                    Game.finalizeRound();
+                }
+            }
+        });
+    }
+
     private void addCallButtonEvent() {
         callButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (!firstTurn) {
-                    if (playerCash >= botBet) {
-                        playerBet = botBet;
-                    }
+                    playerBet = Bot.getBetAmount();
                     setPlayerBetLabel(playerBet);
                     changeCenterMessage("Called for $" + playerBet);
                     disableButton(callButton);
+                    disableButton(raiseButton);
                     disableButton(foldButton);
+                    Game.finalizeRound();
                 }
             }
         });
@@ -302,6 +329,9 @@ public class Main extends Application {
                 playerBet = 10;
                 enableButton(increasePlayerBet);
                 enableButton(decreasePlayerBet);
+                enableButton(raiseButton);
+                enableButton(callButton);
+                enableButton(foldButton);
                 Game.discard(toBeDiscarded, true);
                 Game.postDiscardRound();
             }
