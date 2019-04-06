@@ -22,6 +22,8 @@ public class Card {
         this.id = id;
     }
 
+    //this just instantiates arbitrary placeholder objects so that I can create empty Card classes.
+    // I did this so I could create a second, separate deck in Bot.java.
     public Card() {
         this.rank = Rank.TWO;
         this.suit = Suit.CLUBS;

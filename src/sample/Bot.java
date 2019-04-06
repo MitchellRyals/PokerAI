@@ -117,12 +117,9 @@ public class Bot {
 }
 
 class GeneticAlgorithm {
-
-    //reference:
-    // https://github.com/ssemenova/Genetic-Poker/blob/master/algorithm.py
     public ArrayList<Integer> geneticAlgorithmDiscard(List<Card> actualBotHand) {
-        int populationSize = 200;
-        int generations = 200;
+        int populationSize = 300;
+        int generations = 20;
         int parents = populationSize/2;
         int[] fitnessMode = new int[142];
         //List<Card> untouchedDeck = Card.getDeck();
@@ -158,7 +155,7 @@ class GeneticAlgorithm {
 
             Collections.sort(indexToDiscard);
             Collections.reverse(indexToDiscard);
-            for (int x : indexToDiscard)
+            for (int x: indexToDiscard)
                 geneticHandCopy.remove(x);
 
             Collections.shuffle(copyDeck);
@@ -169,6 +166,21 @@ class GeneticAlgorithm {
             currentSample.setFitnessScore(Game.getHandValue(geneticHandCopy));
             fitnessMode[currentSample.getFitnessScore()]++;
             populationList.add(currentSample);
+        }
+
+        Comparator comparator1 = new Comparator<GeneticFitness>() {
+            public int compare(GeneticFitness e1, GeneticFitness e2) {
+                return Math.max(e1.getFitnessScore(), e2.getFitnessScore());
+            }
+        };
+
+        Collections.sort(populationList, comparator1);
+        Collections.reverse(populationList);
+
+        for (int i = 0; i < generations; i++) {
+            int choice1 = (int)(Math.random() * populationList.size() - 1);
+            int choice2 = (int)(Math.random() * populationList.size() - 1);
+            crossover(choice1, choice2);
         }
 
         for (int index = 0; index < fitnessMode.length; index++)
