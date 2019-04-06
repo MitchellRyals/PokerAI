@@ -265,15 +265,16 @@ public class Main extends Application {
         foldButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (!firstTurn) {
+                    changeCenterMessage("Folded. Press Next Round to continue.");
+                    playerBet = 10;
+                    setPlayerBetLabel(playerBet);
                     disableButton(foldButton);
-                    botCash += playerBet;
-                    playerCash -= playerBet;
-                    playerBet = 0;
-                    setPlayerBetLabel(0);
-                    setBotCash(botCash);
-                    setPlayerCash(playerCash);
-                    changeCenterMessage("Folded. You lost $" + playerBet + "\nPress Next Round to continue.");
-                    isGameOver(Game.checkGameOver(playerCash, botCash));
+                    disableButton(callButton);
+                    disableButton(raiseButton);
+                    boolean gameOver = Game.checkGameOver(playerCash,botCash);
+                    if (!gameOver)
+                        enableButton(nextRoundButton);
+                    isGameOver(gameOver);
                 }
             }
         });

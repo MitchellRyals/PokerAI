@@ -92,7 +92,6 @@ public class Game {
 
         Main.changeBotActionMessage("Bot discarded: " + botDiscard);
         Main.changeCenterMessage("Your opponent bet $" + botBetAmount + "\nChoose to fold, choose a bet amount and press call, or \nselect a higher amount and choose raise");
-        //finalizeRound(); //todo: replace this line with a fold/bet/call round
     }
 
     public static void finalizeRound() {
@@ -114,7 +113,7 @@ public class Game {
             return true;
         }
         else if (botCash <= 0) {
-            message = "The AI ran out of money.\nYou win.";
+            message = "The opponent ran out of money.\nYou win.";
             Main.changeCenterMessage(message);
             Main.enableButton(Main.getNewGameButton());
             return true;
