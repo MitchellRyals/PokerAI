@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -133,6 +134,8 @@ class GeneticAlgorithm {
             populationList.add(currentSample);
         }
 
+        writeToDataFile(populationList);
+
         return populationList;
     }
 
@@ -158,6 +161,21 @@ class GeneticAlgorithm {
             populationList.get(i).setDiscardList(crossover(parentsList.get(choice1), parentsList.get(choice2)));
         }
 
+        writeToDataFile(populationList);
+
         return populationList;
+    }
+
+    private static void writeToDataFile(List<GeneticFitness> populationList) {
+        try {
+            PrintWriter writer = new PrintWriter("GeneticAlgorithmData.txt", "UTF-8");
+
+            for (GeneticFitness individual: populationList) {
+                writer.println(individual.getFitnessScore());
+            }
+
+            writer.close();
+        }
+        catch (Exception e) { System.out.println("error"); }
     }
 }
