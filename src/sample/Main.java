@@ -5,6 +5,10 @@ package sample;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.scene.Node;
+import javafx.scene.chart.Chart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Separator;
@@ -165,7 +169,7 @@ public class Main extends Application {
         increasePlayerBet.setMinWidth(playerButtonContainer.getPrefWidth());
         moneyContainer.getChildren().addAll(increasePlayerBet);
 
-        humanBetLabel = new Label("Betting:\n$0.00");
+        humanBetLabel = new Label("Betting:\n$10");
         humanBetLabel.getStyleClass().add("cashLabel");
         moneyContainer.getChildren().addAll(humanBetLabel);
 
@@ -280,7 +284,7 @@ public class Main extends Application {
         });
     }
 
-    public void addNextRoundButtonEvent() {
+    private void addNextRoundButtonEvent() {
         nextRoundButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -289,13 +293,13 @@ public class Main extends Application {
         });
     }
 
-    public void addDiscardButtonEvent() {
+    private void addDiscardButtonEvent() {
         discardButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 disableButton(discardButton);
                 firstTurn = false;
-                playerBet = 0;
+                playerBet = 10;
                 enableButton(increasePlayerBet);
                 enableButton(decreasePlayerBet);
                 Game.discard(toBeDiscarded, true);

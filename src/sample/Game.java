@@ -91,7 +91,7 @@ public class Game {
             botDiscard += i + " ";
 
         Main.changeBotActionMessage("Bot discarded: " + botDiscard);
-        Main.changeCenterMessage("Your opponent bet $" + botBetAmount + "\nChoose to call, fold, \nor choose a bet amount and press raise.");
+        Main.changeCenterMessage("Your opponent bet $" + botBetAmount + "\nChoose to fold, or choose a bet amount and press call.");
         //finalizeRound(); //todo: replace this line with a fold/bet/call round
     }
 
