@@ -177,9 +177,9 @@ class GeneticAlgorithm {
         Collections.reverse(populationList);
 
         for (int i = 0; i < generations; i++) {
-            int choice1 = (int)(Math.random() * populationList.size() - 1);
-            int choice2 = (int)(Math.random() * populationList.size() - 1);
-            //crossover(choice1, choice2);
+            int choice1 = (int)(Math.random() * populationList.size()/2 - 1);
+            int choice2 = (int)(Math.random() * populationList.size()/2 - 1);
+            crossover(populationList.get(choice1), populationList.get(choice2));
         }
 
         for (int index = 0; index < fitnessMode.length; index++)
@@ -202,6 +202,12 @@ class GeneticAlgorithm {
         Collections.sort(hand, comparator);
 
         return hand;
+    }
+
+    private GeneticFitness crossover(GeneticFitness choice1, GeneticFitness choice2) {
+        GeneticFitness crossoverResult = new GeneticFitness();
+
+        return crossoverResult;
     }
 }
 
