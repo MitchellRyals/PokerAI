@@ -175,9 +175,9 @@ class GeneticAlgorithm {
 
     private void writeToDataFile(List<GeneticFitness> populationList, int currentGeneration) {
         try {
-            writer.print(currentGeneration + " ");
+            writer.print(currentGeneration + "\t");
             for (GeneticFitness individual: populationList)
-                writer.print(individual.getFitnessScore() + " ");
+                writer.print(individual.getFitnessScore() + "\t");
 
             writer.println();
         }
