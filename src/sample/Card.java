@@ -9,7 +9,7 @@ public class Card {
     private final Rank rank;
     private final Suit suit;
     private final int id;
-    private static List<Card> deck;
+    private List<Card> deck;
 
     public enum Rank { TWO, THREE, FOUR, FIVE, SIX,
         SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }
@@ -36,7 +36,7 @@ public class Card {
 
     public static List<Card> getDeck() { return deck; }
 
-    public static List<Card> createDeck() {
+    public List<Card> createDeck() {
         deck = new ArrayList<Card>();
         int i = 0;
 

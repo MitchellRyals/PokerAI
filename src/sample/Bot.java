@@ -25,8 +25,8 @@ public class Bot {
 
     public static List<Integer> getDiscardChoice() {
         List<Integer> toBeDiscarded = new ArrayList<Integer>();
-        //List<Card> hand = Game.getBotHand();
-        List<Card> hand = Card.generateDebugHand();
+        List<Card> hand = Game.getBotHand();
+        //List<Card> hand = Card.generateDebugHand();
         List<Card> deck = Card.getDeck();
 
         String[] suitList = new String[5];
@@ -126,14 +126,15 @@ class GeneticAlgorithm {
         int populationSize = 200;
         int generations = 200;
         int parents = populationSize/2;
-        int[] fitnessMode = new int[141];
-        List<Card> untouchedDeck = Card.createDeck();
+        int[] fitnessMode = new int[142];
+        List<Card> untouchedDeck = Card.getDeck();
+        //List<Card> untouchedDeck = Card.createDeck();
         ArrayList<Integer> DELETELATER = new ArrayList<Integer>();
         List<GeneticFitness> populationList = new ArrayList<>();
 
         //subtract the cards in his hand from the deck. this works because the deck isn't shuffled yet
         for (Card c: actualBotHand)
-            untouchedDeck.remove(c.getId());
+            untouchedDeck.remove(new Integer(c.getId()));
 
         //so this for loop goes through the population, generating copies of hands with random discards
         //and gets their score, storing it in the fitness list. I then use the high scores later
@@ -172,9 +173,10 @@ class GeneticAlgorithm {
         }
 
         for (int index = 0; index < fitnessMode.length; index++)
-            System.out.println(index + " fitness " + fitnessMode[index]);
+            if (fitnessMode[index] > 0)
+                System.out.println(index + " fitness " + fitnessMode[index]);
 
-        DELETELATER.add(1);
+        DELETELATER.add(3);
         return DELETELATER;
     }
 
