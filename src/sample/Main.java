@@ -271,10 +271,7 @@ public class Main extends Application {
                     disableButton(foldButton);
                     disableButton(callButton);
                     disableButton(raiseButton);
-                    boolean gameOver = Game.checkGameOver(playerCash,botCash);
-                    if (!gameOver)
-                        enableButton(nextRoundButton);
-                    isGameOver(gameOver);
+                    enableButton(nextRoundButton);
                 }
             }
         });
@@ -300,7 +297,10 @@ public class Main extends Application {
         callButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (!firstTurn) {
-                    playerBet = Bot.getBetAmount();
+                    if (playerCash >= botBet)
+                        playerBet = Bot.getBetAmount();
+                    else
+                        playerBet = playerCash;
                     setPlayerBetLabel(playerBet);
                     changeCenterMessage("Called for $" + playerBet);
                     disableButton(callButton);

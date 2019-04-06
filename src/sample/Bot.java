@@ -48,7 +48,7 @@ public class Bot {
     }
 
     public static int getBetAmount() {
-        double betMultiplier = 0;
+        double betMultiplier;
         int currentCash = Main.getBotCash();
         //Possible values have a max of 141
         //so let's get this out of the way first. If he gets a royal flush, you can bet he's going all in.
@@ -65,13 +65,9 @@ public class Bot {
 
     private static double calculateChanceOfWinning() {
         List<Card> hand = Game.getBotHand();
-        int playerBet = Main.getPlayerBet();
+        int handScore = Game.getHandValue(hand);
 
-        for (int i = 0; i < hand.size(); i++) {
-
-        }
-
-        return 0.5;
+        return (double) handScore / 141;
     }
 
     //A heavily modified variant of the function to check for flushes in the Game.java file. The difference is
